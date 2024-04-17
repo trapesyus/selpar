@@ -15,6 +15,7 @@ import '../../core/widgets/bottom_navbar_widget/bottom_navbar_widget.dart';
 import '../../core/widgets/elevated_button_widget.dart';
 import '../../core/widgets/text_widget.dart';
 import '../../core/widgets/title_text_widget.dart';
+import '../../service/language/language_service/language_service.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -38,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           CustomTitleText(
-            title: 'Kayıt Ol',
+            title: LanguageService.choosenLanguage['key']!.kaydol!,
             color: ColorConstants.textButtonColor,
           ),
           CustomTextField(
@@ -49,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
             sizeBottom: 0.02,
             sizeRight: 0.02,
             sizeTop: 0.04,
-            label: 'Firma Adı',
+            label: LanguageService.choosenLanguage['key']!.firmaAdi,
             labelStyle: true,
           ),
           CustomTextField(
@@ -58,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
             horizontalHeight: 0.04,
             sizeLeft: 0.02,
             sizeRight: 0.02,
-            label: 'Yetkili Ad ve Soyad',
+            label: LanguageService.choosenLanguage['key']!.yetkiliAdSoyad,
             labelStyle: true,
           ),
           Row(
@@ -91,7 +92,7 @@ class SignUpScreen extends StatelessWidget {
             sizeTop: 0.02,
             sizeLeft: 0.02,
             sizeRight: 0.02,
-            label: 'Adres',
+            label: LanguageService.choosenLanguage['key']!.adres,
             labelStyle: true,
           ),
           CustomTextField(
@@ -100,7 +101,7 @@ class SignUpScreen extends StatelessWidget {
             horizontalHeight: 0.04,
             sizeLeft: 0.02,
             sizeRight: 0.02,
-            label: 'Telefon',
+            label: LanguageService.choosenLanguage['key']!.telefon,
             labelStyle: true,
           ),
           Container(
@@ -120,7 +121,7 @@ class SignUpScreen extends StatelessWidget {
             sizeLeft: 0.02,
             sizeRight: 0.02,
             sizeTop: 0.02,
-            label: 'Email',
+            label: LanguageService.choosenLanguage['key']!.mail,
             labelStyle: true,
           ),
           CustomTextField(
@@ -134,7 +135,7 @@ class SignUpScreen extends StatelessWidget {
             passwordType: true,
           ),
           CustomElevatedButton(
-                  buttonText: 'Kayıt Ol',
+                  buttonText: LanguageService.choosenLanguage['key']!.kaydol!,
                   onPressed: () => BottomNavbarWidget()
                       .navigateEffectiveToPushReplacement(context: context))
               .getPaddingOnly(
@@ -147,14 +148,15 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
-                  text: 'Bir hesabın var mı? ',
+                  text: LanguageService.choosenLanguage['key']!.anyAccount!,
                   color: ColorConstants.defaultTextColor,
                   fontSize: 10),
               GestureDetector(
                   onTap: () =>
                       const LoginScreen().navigateEffectiveTo(context: context),
                   child: CustomText(
-                    text: 'Giriş Yap',
+                    text:
+                        ' ${LanguageService.choosenLanguage['key']!.girisYap!}',
                     color: ColorConstants.defaultTextColor,
                     fontSize: 10,
                     isBold: true,

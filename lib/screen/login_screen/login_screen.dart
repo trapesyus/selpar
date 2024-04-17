@@ -13,6 +13,8 @@ import 'package:selpar/core/widgets/text_widget.dart';
 import 'package:selpar/core/widgets/title_text_widget.dart';
 import 'package:selpar/screen/signup_screen/signup_screen.dart';
 
+import '../../service/language/language_service/language_service.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -30,7 +32,7 @@ class LoginScreen extends StatelessWidget {
       body: ListView(
         children: [
           CustomTitleText(
-            title: 'Giriş Yap',
+            title: LanguageService.choosenLanguage['key']!.girisYap!,
             color: ColorConstants.textButtonColor,
           ),
           CustomAccountTextfield(
@@ -43,7 +45,7 @@ class LoginScreen extends StatelessWidget {
             sizeTop: 0.1,
             isPrefixIcon: true,
             prefixImage: ImagesLoginSignUpConstants.mailImage,
-            label: 'E-Mail',
+            label: LanguageService.choosenLanguage['key']!.mail!,
             labelStyle: true,
           ),
           CustomAccountTextfield(
@@ -54,22 +56,22 @@ class LoginScreen extends StatelessWidget {
             sizeRight: 0.02,
             isPrefixIcon: true,
             prefixImage: ImagesLoginSignUpConstants.passwordImage,
-            label: 'Şifre',
+            label: LanguageService.choosenLanguage['key']!.sifre!,
             labelStyle: true,
             passwordType: true,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: () {},
-                child: CustomText(
-                  text: 'Şifremi Unuttum?',
-                  fontSize: 10,
-                  color: ColorConstants.defaultTextColor,
-                )),
-          ),
+          // Align(
+          //   alignment: Alignment.centerRight,
+          //   child: TextButton(
+          //       onPressed: () {},
+          //       child: CustomText(
+          //         text: 'Şifremi Unuttum?',
+          //         fontSize: 10,
+          //         color: ColorConstants.defaultTextColor,
+          //       )),
+          // ),
           CustomElevatedButton(
-                  buttonText: 'Giriş Yap',
+                  buttonText: LanguageService.choosenLanguage['key']!.girisYap!,
                   onPressed: () => BottomNavbarWidget()
                       .navigateEffectiveToPushReplacement(context: context))
               .getPaddingOnly(
@@ -85,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                   onTap: () =>
                       SignUpScreen().navigateEffectiveTo(context: context),
                   child: CustomText(
-                    text: 'Kayıt Ol',
+                    text: LanguageService.choosenLanguage['key']!.kaydol!,
                     color: ColorConstants.defaultTextColor,
                     fontSize: 10,
                     isBold: true,

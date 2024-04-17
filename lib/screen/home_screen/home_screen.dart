@@ -14,6 +14,7 @@ import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/cari
 import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/odeme_ekle/odeme_ekle.dart';
 import 'package:selpar/screen/navigation_bar_items/order_screen/alinan_siparis_girisi/alinan_siparis_girisi.dart';
 import 'package:selpar/screen/navigation_bar_items/stock_screen/subscreen/stok_listesi/stok_listesi.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 import '../navigation_bar_items/finance_screen/subscreen/tahsilat_ekle/tahsilat_ekle.dart';
 import 'subscreen/cek_senet/alinan_cek_senet/alinan_cek_senet.dart';
@@ -33,10 +34,9 @@ class HomeScreen extends StatelessWidget {
             context: context,
             height: 0.08,
             content: '1000₺',
-            title: 'Banka:',
             image: ImagesHomeScreenConstants.imageBank),
         CustomText(
-                text: 'Hızlı İşlem Menüsü',
+                text: LanguageService.choosenLanguage['key']!.hizliIslemMenusu!,
                 color: ColorConstants.defaultTextColor,
                 fontSize: 18)
             .getPaddingOnly(context: context, bottom: 0.02, top: 0.04),
@@ -44,18 +44,18 @@ class HomeScreen extends StatelessWidget {
           children: [
             Expanded(
               child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.tahsilatEkle,
-                      text: 'Tahsilat Ekle',
-                      onPressed: () async => await TahsilatEkle()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
+                  context: context,
+                  image: ImagesHomeScreenConstants.tahsilatEkle,
+                  text: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
+                  onPressed: () async => await TahsilatEkle()
+                      .navigateEffectiveTo(context: context)).getPaddingOnly(
+                  context: context, right: 0.02),
             ),
             Expanded(
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.odemeEkle,
-                      text: 'Ödeme Ekle',
+                      text: LanguageService.choosenLanguage['key']!.odemeEkle!,
                       onPressed: () async => await OdemeEkle()
                           .navigateEffectiveTo(context: context))
                   .getPaddingOnly(context: context, right: 0.02),
@@ -64,14 +64,17 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                   context: context,
                   image: ImagesHomeScreenConstants.cekSenet,
-                  text: 'Çek - Senet',
+                  text: LanguageService.choosenLanguage['key']!.cekSenet!,
                   onPressed: () => _customShowDialog(
                         context: context,
-                        title: 'Alınan / Verilen Çek-Senet',
-                        firstSubTitle: 'Verilen Çek-Senet',
+                        title: LanguageService
+                            .choosenLanguage['key']!.alinanVerilenCekSenet!,
+                        firstSubTitle: LanguageService
+                            .choosenLanguage['key']!.verilenCekSenet!,
                         firstOnTap: () async => await VerilenCekSenet()
                             .navigateEffectiveTo(context: context),
-                        secondSubtitle: 'Alınan Çek-Senet',
+                        secondSubtitle: LanguageService
+                            .choosenLanguage['key']!.alinanCekSenet!,
                         secondOnTap: () async => await AlinanCekSenet()
                             .navigateEffectiveTo(context: context),
                       )).getPaddingOnly(context: context, right: 0.02),
@@ -80,7 +83,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.satisGiris,
-                      text: 'Satış Giriş',
+                      text: LanguageService.choosenLanguage['key']!.satisGiris!,
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
             ),
@@ -88,7 +91,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.gunuGelen,
-                      text: 'Günü Gelen',
+                      text: LanguageService.choosenLanguage['key']!.gunuGelen!,
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
             ),
@@ -100,7 +103,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.imageOverdue,
-                      text: 'Günü Geçen',
+                      text: LanguageService.choosenLanguage['key']!.gunuGecen!,
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
             ),
@@ -108,7 +111,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.imageOffer,
-                      text: 'Teklif',
+                      text: LanguageService.choosenLanguage['key']!.teklif!,
                       onPressed: () async =>
                           await Teklif().navigateEffectiveTo(context: context))
                   .getPaddingOnly(context: context, right: 0.02),
@@ -117,7 +120,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.imageStock,
-                      text: 'Stok',
+                      text: LanguageService.choosenLanguage['key']!.stok!,
                       onPressed: () async => await const StokListesi()
                           .navigateEffectiveTo(context: context))
                   .getPaddingOnly(context: context, right: 0.02),
@@ -126,7 +129,7 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.imageStockNeed,
-                      text: 'Stok İhtiyaç',
+                      text: LanguageService.choosenLanguage['key']!.stokIhtYac!,
                       onPressed: () async => await StokIhtiyacRaporu()
                           .navigateEffectiveTo(context: context))
                   .getPaddingOnly(context: context, right: 0.02),
@@ -135,14 +138,17 @@ class HomeScreen extends StatelessWidget {
               child: _listContainer(
                       context: context,
                       image: ImagesHomeScreenConstants.imageOrder,
-                      text: 'Sipariş',
+                      text: LanguageService.choosenLanguage['key']!.siparis!,
                       onPressed: () => _customShowDialog(
                           context: context,
-                          title: 'Alınan / Verilen Sipariş',
-                          firstSubTitle: 'Verilen Sipariş Girişi',
+                          title: LanguageService
+                              .choosenLanguage['key']!.alinanVerilenSiparis!,
+                          firstSubTitle: LanguageService
+                              .choosenLanguage['key']!.verilenSiparisGirisi!,
                           firstOnTap: () async => await VerilenSiparisGirisi()
                               .navigateEffectiveTo(context: context),
-                          secondSubtitle: 'Alınan Sipariş Girişi',
+                          secondSubtitle: LanguageService
+                              .choosenLanguage['key']!.alinanSiparisGirisi!,
                           secondOnTap: () async => await AlinanSiparisGirisi()
                               .navigateEffectiveTo(context: context)))
                   .getPaddingOnly(context: context, right: 0.02),
@@ -152,8 +158,9 @@ class HomeScreen extends StatelessWidget {
         _bankStatementContainer(
                 count: '24',
                 context: context,
-                title: 'Cari Listesi (Hesap Ekstresi)',
-                content: 'Cari Listesini görmek için tıklayın..',
+                title: LanguageService.choosenLanguage['key']!.cariListesi!,
+                content: LanguageService
+                    .choosenLanguage['key']!.cariListesiniGormekIcinTiklayin!,
                 image: ImagesHomeScreenConstants.cariListe,
                 height: 0.12)
             .getPaddingOnly(context: context, bottom: 0.02),
@@ -289,7 +296,8 @@ class HomeScreen extends StatelessWidget {
                       Image.asset(image,
                           filterQuality: FilterQuality.high, fit: BoxFit.cover),
                       CustomText(
-                          text: '$count Adet',
+                          text:
+                              '$count ${LanguageService.choosenLanguage['key']!.adet!}',
                           color: ColorConstants.defaultTextColor,
                           isBold: true,
                           fontSize: 12),
@@ -306,13 +314,12 @@ class HomeScreen extends StatelessWidget {
       {required BuildContext context,
       required double height,
       required String content,
-      required String title,
       required String image}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-                text: 'Hesap Özeti',
+                text: LanguageService.choosenLanguage['key']!.hesapOzeti!,
                 color: ColorConstants.defaultTextColor,
                 fontSize: 18)
             .getPaddingOnly(context: context, bottom: 0.02),
@@ -332,7 +339,8 @@ class HomeScreen extends StatelessWidget {
                         filterQuality: FilterQuality.high, fit: BoxFit.cover)
                     .getPaddingOnly(context: context, left: 0.02),
                 CustomText(
-                    text: 'Hesabınızda $content Bakiye bulunmakta',
+                    text:
+                        '${LanguageService.choosenLanguage['key']!.hesapOzeti!}: $content',
                     color: ColorConstants.defaultTextColor,
                     fontSize: 12,
                     isBold: true),

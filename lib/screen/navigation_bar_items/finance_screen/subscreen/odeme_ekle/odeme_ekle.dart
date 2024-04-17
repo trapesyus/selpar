@@ -85,7 +85,8 @@ class OdemeEkle extends StatelessWidget {
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
             SharedCalendarWidget(
                     store: _odemeEkleModel.calendarSelectDate,
-                    title: 'Tarih Seç:')
+                    title: 'Tarih Seç:',
+                    isTitleRow: true)
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
             _dropDownContainer(
                     context: context, items: _odemeEkleModel.moneyItems)
@@ -131,11 +132,9 @@ class OdemeEkle extends StatelessWidget {
         height: context.getSizeHeight(size: 0.05),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: ColorConstants.hintDarkContainerColor),
+            color: ColorConstants.buttonColor),
         child: CustomText(
-            text: buttonText,
-            color: ColorConstants.defaultTextColor,
-            isBold: true),
+            text: buttonText, color: ColorConstants.whiteColor, isBold: true),
       ),
     );
   }

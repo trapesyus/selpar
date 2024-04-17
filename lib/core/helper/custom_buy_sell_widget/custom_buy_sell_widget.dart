@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 import 'package:selpar/core/constants/color_constants.dart';
 import 'package:selpar/core/extensions/padding_extension.dart';
@@ -59,18 +60,21 @@ class CustomBuySellWidget extends StatelessWidget {
                           Expanded(
                             child: CustomText(
                                 text: 'Fatura Tipi:',
+                                fontSize: 14,
+                                isBold: true,
                                 color: ColorConstants.defaultTextColor),
                           ),
                           Expanded(
                               child: CustomDropDownbutton(
                                   items: store.faturaItems)),
                         ],
-                      ),
+                      ).getPaddingOnly(context: context, bottom: 0.02),
                       Row(
                         children: [
                           Expanded(
                             child: CustomText(
                                 text: 'KDV Tipi:',
+                                isBold: true,
                                 color: ColorConstants.defaultTextColor),
                           ),
                           Expanded(
@@ -86,7 +90,9 @@ class CustomBuySellWidget extends StatelessWidget {
                               text: 'KDV Tipi:',
                               color: ColorConstants.defaultTextColor)
                           .getPaddingOnly(context: context, right: 0.02),
-                      CustomDropDownbutton(items: store.kdvTypeItems)
+                      Expanded(
+                          child:
+                              CustomDropDownbutton(items: store.kdvTypeItems))
                     ],
                   ),
             CustomTextField(
@@ -108,17 +114,21 @@ class CustomBuySellWidget extends StatelessWidget {
               controller: null,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
+              sizeBottom: 0.02,
               label: 'Adres',
               labelStyle: true,
             ),
             Row(
               children: [
                 Expanded(
-                  child: CustomDropDownbutton(items: store.provinceItems),
+                  child: CustomDropDownbutton(items: store.provinceItems)
+                      .getPaddingOnly(context: context, right: 0.04),
                 ),
-                CustomDropDownbutton(items: store.districtItems)
+                Expanded(
+                    child: CustomDropDownbutton(items: store.districtItems)
+                        .getPaddingOnly(context: context, left: 0.04))
               ],
-            ).getPadding(context: context, sizeWidth: 0.04, sizeHeight: 0),
+            ),
             Row(
               children: [
                 Expanded(
@@ -148,6 +158,7 @@ class CustomBuySellWidget extends StatelessWidget {
               controller: null,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
+              sizeBottom: 0.02,
               label: 'E-Mail',
               labelStyle: true,
             ),
@@ -230,31 +241,32 @@ class CustomBuySellWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  flex: 2,
                   child: Row(
                     children: [
                       CustomText(
                               text: 'KDV:',
                               color: ColorConstants.defaultTextColor)
                           .getPaddingOnly(
-                              context: context, right: 0.02, left: 0.04),
-                      CustomDropDownbutton(items: store.kdvCount)
-                          .getPaddingOnly(context: context, right: 0.04),
+                              context: context, right: 0.02, left: 0.02),
+                      Expanded(
+                        child: CustomDropDownbutton(items: store.kdvCount)
+                            .getPaddingOnly(context: context, right: 0.04),
+                      ),
                     ],
                   ),
                 ),
-                Expanded(child: CustomDropDownbutton(items: store.typeItems))
+                Expanded(
+                    child: CustomDropDownbutton(items: store.typeItems)
+                        .getPaddingOnly(context: context, left: 0.04))
               ],
             ),
             CustomElevatedButton(buttonText: 'Ekle', onPressed: () {})
                 .getPaddingOnly(context: context, bottom: 0.02, top: 0.02),
             Container(
               height: context.getSizeHeight(size: 0.14),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: ColorConstants.hintDarkContainerColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10))),
+                  borderRadius: BorderRadius.circular(10)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -290,10 +302,10 @@ class CustomBuySellWidget extends StatelessWidget {
                             isBold: true),
                       ).getPaddingOnly(context: context, bottom: 0.02)
                     ],
-                  )
+                  ),
                 ],
               ),
-            )
+            ).getPaddingOnly(context: context, bottom: 0.04)
           ],
         ),
       ),

@@ -62,11 +62,9 @@ class CustomListPageWithTextField extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: ColorConstants.hintDarkContainerColor),
+              color: ColorConstants.buttonColor),
           child: CustomText(
-              text: buttonText,
-              color: ColorConstants.defaultTextColor,
-              isBold: true),
+              text: buttonText, color: ColorConstants.whiteColor, isBold: true),
         ),
       );
 }

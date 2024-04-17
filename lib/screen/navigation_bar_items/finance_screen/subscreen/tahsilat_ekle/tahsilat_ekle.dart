@@ -85,7 +85,9 @@ class TahsilatEkle extends StatelessWidget {
                 .getPadding(
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
             SharedCalendarWidget(
-                    store: _calendarWidgetModel, title: 'Tarih Seç')
+                    store: _calendarWidgetModel,
+                    title: 'Tarih Seç',
+                    isTitleRow: true)
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
             _dropDownContainer(
                     context: context, items: _tahsilatEkleModel.moneyItems)

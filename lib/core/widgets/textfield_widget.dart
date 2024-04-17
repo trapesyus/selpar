@@ -109,19 +109,17 @@ class CustomTextField extends StatelessWidget {
                   ? IconButton(
                       onPressed: () => isIconOnTap!() ?? () {},
                       icon: const Icon(CupertinoIcons.search),
-                      color: ColorConstants.textFieldHintTextColor,
+                      color: ColorConstants.bgColor,
                     )
                   : null,
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: const BorderSide(
-                      color: ColorConstants.hintDarkContainerColor,
-                      width: 2.0)),
+                      color: ColorConstants.buttonColor, width: 2.0)),
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: const BorderSide(
-                      color: ColorConstants.hintDarkContainerColor,
-                      width: 2.0)),
+                      color: ColorConstants.buttonColor, width: 2.0)),
               contentPadding: EdgeInsets.only(
                 top: context.getSizeHeight(size: verticalHeight),
                 left: context.getSizeWidth(size: horizontalHeight),
@@ -132,7 +130,7 @@ class CustomTextField extends StatelessWidget {
               labelText: label ?? '',
               labelStyle: labelStyle
                   ? TextStyle(
-                      color: ColorConstants.textFieldHintTextColor,
+                      color: ColorConstants.bgColor,
                       fontFamily: GoogleFonts.merriweather().fontFamily)
                   : null,
               suffixText: suffixText ?? '',
