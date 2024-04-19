@@ -102,11 +102,14 @@ class BottomNavbarStok extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                                  text: 'Fiyatı: 00.00₺',
+                                  text:
+                                      '${LanguageService.choosenLanguage['key']!.fiyati!}: 00.00₺',
                                   color: ColorConstants.bgColor)
                               .getPaddingOnly(context: context, bottom: 0.02),
                           CustomText(
-                              text: 'Raf Yeri: ', color: ColorConstants.bgColor)
+                              text:
+                                  '${LanguageService.choosenLanguage['key']!.rafYeri!}: ',
+                              color: ColorConstants.bgColor)
                         ])
                   ]).getPaddingOnly(context: context, left: 0.04),
                   const SizedBox()

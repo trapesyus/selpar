@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
             sizeLeft: 0.02,
             sizeBottom: 0.02,
             sizeRight: 0.02,
-            sizeTop: 0.1,
+            sizeTop: 0.2,
             isPrefixIcon: true,
             prefixImage: ImagesLoginSignUpConstants.mailImage,
             label: LanguageService.choosenLanguage['key']!.mail!,
@@ -75,12 +75,13 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () => BottomNavbarWidget()
                       .navigateEffectiveToPushReplacement(context: context))
               .getPaddingOnly(
-                  context: context, bottom: 0.4, right: 0.02, left: 0.02),
+                  context: context, bottom: 0.3, right: 0.02, left: 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
-                  text: 'Hesabın yok mu? ',
+                  text:
+                      '${LanguageService.choosenLanguage['key']!.hesabinYokMu!} ',
                   color: ColorConstants.defaultTextColor,
                   fontSize: 10),
               GestureDetector(

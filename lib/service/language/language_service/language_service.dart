@@ -8,7 +8,7 @@ import '../language_model/language_model.dart';
 
 class LanguageService {
   static final LanguageModel languageModel = LanguageModel();
-  static Map<String, Tr> choosenLanguage = {'key': LanguageModel().en!};
+  static Map<String, Tr> choosenLanguage = {'key': LanguageModel().tr!};
 
   Future<void> getLanguage() async {
     SharedPreferences preferences = await Preferences.prefs;

@@ -65,7 +65,8 @@ class BottomNavbarCariListesi extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CustomText(
-                                text: 'Alacak / Verecek: ',
+                                text:
+                                    '${LanguageService.choosenLanguage['key']!.alacakVerecek!}: ',
                                 isBold: false,
                                 color: ColorConstants.bgColor),
                             CustomText(
@@ -128,7 +129,7 @@ class BottomNavbarCariListesi extends StatelessWidget {
                 )
               ],
             ),
-          ),
+          ).getPaddingOnly(context: context, bottom: 0.08),
         ).getPaddingOnly(context: context, left: 0.02, right: 0.02)
       ],
     ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0);
@@ -144,13 +145,11 @@ class BottomNavbarCariListesi extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: ColorConstants.hintContainerColor),
+            color: ColorConstants.buttonColor),
         width: context.getSizeWidth(size: 0.2),
         height: context.getSizeHeight(size: 0.05),
         child: CustomText(
-            text: buttonName,
-            isBold: true,
-            color: ColorConstants.defaultTextColor),
+            text: buttonName, isBold: true, color: ColorConstants.whiteColor),
       ),
     ).getPaddingOnly(context: context, bottom: 0.01);
   }

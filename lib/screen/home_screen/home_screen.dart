@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
             context: context,
             height: 0.08,
             content: '1000₺',
-            image: ImagesHomeScreenConstants.imageBank),
+            image: ImagesHomeScreenConstants.bakiye),
         CustomText(
                 text: LanguageService.choosenLanguage['key']!.hizliIslemMenusu!,
                 color: ColorConstants.defaultTextColor,
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageOverdue,
+                      image: ImagesHomeScreenConstants.gunuGecen,
                       text: LanguageService.choosenLanguage['key']!.gunuGecen!,
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageOffer,
+                      image: ImagesHomeScreenConstants.teklif,
                       text: LanguageService.choosenLanguage['key']!.teklif!,
                       onPressed: () async =>
                           await Teklif().navigateEffectiveTo(context: context))
@@ -123,7 +123,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageStock,
+                      image: ImagesHomeScreenConstants.stok,
                       text: LanguageService.choosenLanguage['key']!.stok!,
                       onPressed: () async => await const StokListesi()
                           .navigateEffectiveTo(context: context))
@@ -136,7 +136,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                   context: context,
-                  image: ImagesHomeScreenConstants.imageStockNeed,
+                  image: ImagesHomeScreenConstants.stokIhtiyac,
                   text: LanguageService.choosenLanguage['key']!.stokIhtiyac ??
                       'Hata burası',
                   onPressed: () async => await StokIhtiyacRaporu()
@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageOrder,
+                      image: ImagesHomeScreenConstants.siparis,
                       text: LanguageService.choosenLanguage['key']!.siparis!,
                       onPressed: () => _customShowDialog(
                           context: context,
@@ -165,7 +165,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageOrder,
+                      image: ImagesHomeScreenConstants.alisEvrakListesi,
                       text: LanguageService
                           .choosenLanguage['key']!.alisEvrakListesi!,
                       onPressed: () async => await AlisEvrakListesi()
@@ -175,7 +175,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: _listContainer(
                       context: context,
-                      image: ImagesHomeScreenConstants.imageOrder,
+                      image: ImagesHomeScreenConstants.satisEvrakListesi,
                       text: LanguageService
                           .choosenLanguage['key']!.satisEvrakListesi!,
                       onPressed: () async => await SatisEvrakListesi()
@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                 title: LanguageService.choosenLanguage['key']!.cariListesi!,
                 content: LanguageService
                     .choosenLanguage['key']!.cariListesiniGormekIcinTiklayin!,
-                image: ImagesHomeScreenConstants.cariListe,
+                image: ImagesHomeScreenConstants.cariListesi,
                 height: 0.12)
             .getPaddingOnly(context: context, bottom: 0.02),
       ],
@@ -326,8 +326,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(image,
+                            scale: 12.0,
                             filterQuality: FilterQuality.high,
                             fit: BoxFit.cover),
                         CustomText(
@@ -337,7 +339,7 @@ class HomeScreen extends StatelessWidget {
                             isBold: true,
                             fontSize: 12),
                       ],
-                    ),
+                    ).getPaddingOnly(context: context, top: 0.01),
                   ),
                 ],
               )),
@@ -372,7 +374,9 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(image,
-                        filterQuality: FilterQuality.high, fit: BoxFit.cover)
+                        scale: 12.0,
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.cover)
                     .getPaddingOnly(context: context, left: 0.02),
                 CustomText(
                     text:

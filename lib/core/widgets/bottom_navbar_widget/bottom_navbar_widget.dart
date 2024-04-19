@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:selpar/core/constants/color_constants.dart';
@@ -13,6 +12,7 @@ import 'package:selpar/core/widgets/bottom_navbar_widget/bottom_navbar_widget_mo
 import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/label_text_widget.dart';
 import 'package:selpar/core/widgets/text_widget.dart';
+import 'package:selpar/screen/bottom_navbar_end_drawer_subscreen/hesap_screen.dart';
 import 'package:selpar/screen/bottom_navbar_widget_subscreen/bottom_navbar_cari_listesi/bottom_navbar_cari_listesi.dart';
 import 'package:selpar/screen/bottom_navbar_widget_subscreen/bottom_navbar_kapali_onarimlar/bottom_navbar_kapali_onarimlar.dart';
 import 'package:selpar/screen/bottom_navbar_widget_subscreen/bottom_navbar_kart/bottom_navbar_kart.dart';
@@ -35,7 +35,6 @@ import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/%C3%
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/kapali_onarimlar/kapali_onarimlar.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/silinen_kabul_listesi/silinen_kabul_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/tahsilati_yapilmayan_onarimlar/tahsilati_yapilmayan_onarimlar.dart';
-import 'package:selpar/screen/navigation_bar_items/vehicle_screen/vehicle_screen.dart';
 import 'package:selpar/service/language/language_service/language_service.dart';
 
 import '../../../screen/bottom_navbar_widget_subscreen/bottom_navbar_stok/bottom_navbar_stok.dart';
@@ -344,7 +343,8 @@ class BottomNavbarWidget extends StatelessWidget {
                           )
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () async => await const HesapScreen()
+                          .navigateEffectiveTo(context: context),
                     ),
                     ListTile(
                       title: Row(
@@ -439,7 +439,7 @@ class BottomNavbarWidget extends StatelessWidget {
                                   }),
                               _bottomNavbarIcon(
                                   context: context,
-                                  icon: Icons.account_balance_wallet,
+                                  icon: CupertinoIcons.doc_person_fill,
                                   index: 2,
                                   onTap: () {
                                     _bottomNavbarWidgetModel.setIndex(2);

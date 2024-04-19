@@ -113,7 +113,8 @@
         "cariyeGoreAramaYapin": "Cariye Göre Arama Yapın",
         "bugunAcilanKabulKartlari": "Bugün Açılan Kabul Kartları",
         "acikKartlar": "Açık Kartlar",
-        "bugunKapatilanKartlar": "Bugün Kapatılan Kartlar"
+        "bugunKapatilanKartlar": "Bugün Kapatılan Kartlar",
+        "hesabinYokMu": "Hesabın yok mu?"
     },
     "en": {
         "girisYap": "Login",
@@ -229,7 +230,8 @@
         "cariyeGoreAramaYapin": "Search by Customer",
         "bugunAcilanKabulKartlari": "Today's Opened Acceptance Cards",
         "acikKartlar": "Open Cards",
-        "bugunKapatilanKartlar": "Today's Closed Cards"
+        "bugunKapatilanKartlar": "Today's Closed Cards",
+        "hesabinYokMu": "Don't you have an account?"
     },
     "de": {
         "girisYap": "Einloggen",
@@ -345,7 +347,8 @@
         "cariyeGoreAramaYapin": "Suche nach Kunde",
         "bugunAcilanKabulKartlari": "Heute geöffnete Annahmekarten",
         "acikKartlar": "Offene Karten",
-        "bugunKapatilanKartlar": "Heute geschlossene Karten"
+        "bugunKapatilanKartlar": "Heute geschlossene Karten",
+        "hesabinYokMu": "Hast du kein Konto?"
     },
     "ru": {
         "girisYap": "Войти",
@@ -461,7 +464,8 @@
         "cariyeGoreAramaYapin": "Поиск по клиенту",
         "bugunAcilanKabulKartlari": "Открытые карты приема на сегодня",
         "acikKartlar": "Открытые карты",
-        "bugunKapatilanKartlar": "Закрытые карты на сегодня"
+        "bugunKapatilanKartlar": "Закрытые карты на сегодня",
+        "hesabinYokMu": "У тебя нет аккаунта?"
     },
     "flemish": {
         "girisYap": "Inloggen",
@@ -577,6 +581,7 @@
         "cariyeGoreAramaYapin": "Zoeken op klant",
         "bugunAcilanKabulKartlari": "Vandaag geopende acceptatiekaarten",
         "acikKartlar": "Open kaarten",
-        "bugunKapatilanKartlar": "Vandaag gesloten kaarten"
+        "bugunKapatilanKartlar": "Vandaag gesloten kaarten",
+        "hesabinYokMu": "Heb je geen account?"
     }
 }

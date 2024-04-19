@@ -158,13 +158,11 @@ class CariListesi extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: ColorConstants.hintContainerColor),
+            color: ColorConstants.buttonColor),
         width: context.getSizeWidth(size: 0.2),
         height: context.getSizeHeight(size: 0.05),
         child: CustomText(
-            text: buttonName,
-            isBold: true,
-            color: ColorConstants.defaultTextColor),
+            text: buttonName, isBold: true, color: ColorConstants.whiteColor),
       ),
     ).getPaddingOnly(context: context, bottom: 0.01);
   }

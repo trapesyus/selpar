@@ -109,7 +109,6 @@ class TahsilatEkle extends StatelessWidget {
             ),
             CustomTextField(
               controller: null,
-              sizeBottom: 0.02,
               sizeLeft: 0.02,
               sizeRight: 0.02,
               horizontalHeight: 0.04,
@@ -121,7 +120,8 @@ class TahsilatEkle extends StatelessWidget {
                     buttonText:
                         LanguageService.choosenLanguage['key']!.tahsilatEkle!,
                     onPressed: () {})
-                .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0)
+                .getPaddingOnly(
+                    context: context, right: 0.02, left: 0.02, bottom: 0.04)
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
       ),

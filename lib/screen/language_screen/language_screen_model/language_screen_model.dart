@@ -13,11 +13,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/widgets/bottom_navbar_widget/bottom_navbar_widget.dart';
 part 'language_screen_model.g.dart';
 
+// ignore: library_private_types_in_public_api
 class LanguageScreenModel = _LanguageScreenModelBase with _$LanguageScreenModel;
 
 abstract class _LanguageScreenModelBase with Store {
   @observable
-  String selectedLanguage = '';
+  String selectedLanguage = LanguageService.choosenLanguage['key']!.turkce!;
   @observable
   bool isSelectedLanguage = false;
 

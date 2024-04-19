@@ -151,6 +151,7 @@ class Tr {
   String? bugunAcilanKabulKartlari;
   String? acikKartlar;
   String? bugunKapatilanKartlar;
+  String? hesabinYokMu;
 
   Tr(
       {this.girisYap,
@@ -266,7 +267,8 @@ class Tr {
       this.cariyeGoreAramaYapin,
       this.bugunAcilanKabulKartlari,
       this.acikKartlar,
-      this.bugunKapatilanKartlar});
+      this.bugunKapatilanKartlar,
+      this.hesabinYokMu});
 
   Tr.fromJson(Map<String, dynamic> json) {
     girisYap = json['girisYap'];
@@ -384,6 +386,7 @@ class Tr {
     bugunAcilanKabulKartlari = json['bugunAcilanKabulKartlari'];
     acikKartlar = json['acikKartlar'];
     bugunKapatilanKartlar = json['bugunKapatilanKartlar'];
+    hesabinYokMu = json['hesabinYokMu'];
   }
 
   Map<String, dynamic> toJson() {
@@ -503,6 +506,7 @@ class Tr {
     data['bugunAcilanKabulKartlari'] = bugunAcilanKabulKartlari;
     data['acikKartlar'] = acikKartlar;
     data['bugunKapatilanKartlar'] = bugunKapatilanKartlar;
+    data['hesabinYokMu'] = hesabinYokMu;
     return data;
   }
 }

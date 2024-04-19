@@ -8,8 +8,10 @@ class CustomTextButton extends StatelessWidget {
   String text;
   Function onPressed;
   Color color;
+  bool isBold;
   CustomTextButton(
       {super.key,
+      required this.isBold,
       required this.text,
       required this.onPressed,
       this.color = ColorConstants.buttonColor});
@@ -18,7 +20,9 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       child: Text(text,
           style: TextStyle(
-              color: color, fontFamily: GoogleFonts.poppins().fontFamily)),
+              color: color,
+              fontFamily: GoogleFonts.poppins().fontFamily,
+              fontWeight: isBold ? FontWeight.bold : null)),
       onPressed: () => onPressed(),
     );
   }

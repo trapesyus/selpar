@@ -36,16 +36,20 @@ class LanguageScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   margin: EdgeInsets.symmetric(
                       horizontal: context.getSizeWidth(size: 0.04)),
-                  height: context.getSizeHeight(size: 0.5),
+                  height: context.getSizeHeight(size: 0.4548),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          width: 2,
-                          color: ColorConstants.hintDarkContainerColor)),
+                      border: const Border.symmetric(
+                          vertical: BorderSide(
+                              color: ColorConstants.hintDarkContainerColor,
+                              width: 2))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -65,8 +69,12 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                       Observer(
                         builder: (_) => RadioListTile<String>(
+                          activeColor: ColorConstants.buttonColor,
                           title: CustomText(
                             text: LanguageService
                                 .choosenLanguage['key']!.ingilizce!,
@@ -83,8 +91,12 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                       Observer(
                         builder: (_) => RadioListTile<String>(
+                          activeColor: ColorConstants.buttonColor,
                           title: CustomText(
                             text: LanguageService
                                 .choosenLanguage['key']!.almanca!,
@@ -101,8 +113,12 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                       Observer(
                         builder: (_) => RadioListTile<String>(
+                          activeColor: ColorConstants.buttonColor,
                           title: CustomText(
                             text:
                                 LanguageService.choosenLanguage['key']!.rusca!,
@@ -118,8 +134,12 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                       Observer(
                         builder: (_) => RadioListTile<String>(
+                          activeColor: ColorConstants.buttonColor,
                           title: CustomText(
                             text: LanguageService
                                 .choosenLanguage['key']!.flemenkce!,
@@ -136,6 +156,9 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
+                      const Divider(
+                          thickness: 2,
+                          color: ColorConstants.hintDarkContainerColor),
                     ],
                   ),
                 ),
