@@ -7,6 +7,7 @@ import '../../../../../core/constants/color_constants.dart';
 import '../../../../../core/widgets/appbar_widget.dart';
 import '../../../../../core/widgets/icon_button_widget.dart';
 import '../../../../../core/widgets/textfield_widget.dart';
+import '../../../../../service/language/language_service/language_service.dart';
 
 class OrjinalStokListesi extends StatelessWidget {
   const OrjinalStokListesi({super.key});
@@ -16,7 +17,7 @@ class OrjinalStokListesi extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(
-          title: 'Orjinal Stok Listesi',
+          title: LanguageService.choosenLanguage['key']!.orjinalStokListesi!,
           leading: CustomIconButton(
               icon: const Icon(CupertinoIcons.back,
                   color: ColorConstants.buttonColor),
@@ -35,7 +36,8 @@ class OrjinalStokListesi extends StatelessWidget {
                     verticalHeight: 0.01,
                     sizeLeft: 0.04,
                     sizeRight: 0.04,
-                    label: "Stok No'ya göre ara",
+                    label: LanguageService
+                        .choosenLanguage['key']!.stokNoyaGoreAra!,
                     labelStyle: true,
                     isIcon: true,
                     isIconTap: true,

@@ -26,7 +26,7 @@ class CustomCardText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(text,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            fontFamily: GoogleFonts.merriweather().fontFamily,
+            fontFamily: GoogleFonts.poppins().fontFamily,
             color: isContentColor ? ColorConstants.buttonColor : null,
             decoration: isUnderline ? TextDecoration.underline : null,
             fontWeight: isBold ? FontWeight.bold : null,

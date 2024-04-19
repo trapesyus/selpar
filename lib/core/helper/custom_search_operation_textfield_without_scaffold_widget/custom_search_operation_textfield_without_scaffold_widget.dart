@@ -6,6 +6,7 @@ import 'package:selpar/core/extensions/padding_extension.dart';
 import 'package:selpar/core/widgets/text_widget.dart';
 
 import 'package:selpar/core/widgets/textfield_widget.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 // ignore: must_be_immutable
 class CustomSearchOperationTextFieldWithoutScaffoldWidget
@@ -38,7 +39,7 @@ class CustomSearchOperationTextFieldWithoutScaffoldWidget
           sizeRight: 0.02,
           sizeTop: 0.02,
           sizeBottom: 0.02,
-          label: 'Plaka, Cari vs göre arama',
+          label: LanguageService.choosenLanguage['key']!.plakaCariVsArama!,
           labelStyle: true,
           isIconOnTap: onTapTextField,
           isIcon: true,

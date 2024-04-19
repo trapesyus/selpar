@@ -27,7 +27,6 @@ class StokIhtiyacRaporu extends StatelessWidget {
               verticalHeight: 0.01,
               sizeBottom: 0.02,
               sizeTop: 0.02,
-              sizeLeft: 0.02,
               sizeRight: 0.02,
               label: 'Stok No Girin',
               labelStyle: true,
@@ -40,10 +39,9 @@ class StokIhtiyacRaporu extends StatelessWidget {
               sizeBottom: 0.02,
               sizeTop: 0.02,
               sizeLeft: 0.02,
-              sizeRight: 0.02,
               label: 'Ürün Adı Girin',
               labelStyle: true,
-            ).getPaddingOnly(context: context, right: 0.02))
+            ))
           ]).getPaddingOnly(context: context, bottom: 0.02),
           IntrinsicHeight(
             child: Row(

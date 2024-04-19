@@ -7,6 +7,7 @@ import 'package:selpar/core/helper/shared_calendar_widget/shared_calendar_widget
 import 'package:selpar/core/widgets/appbar_widget.dart';
 import 'package:selpar/core/widgets/icon_button_widget.dart';
 
+import '../../../service/language/language_service/language_service.dart';
 import '../../widgets/text_widget.dart';
 import '../shared_calendar_widget/shared_calendar_widget.dart';
 
@@ -46,14 +47,19 @@ class CustomListPageWidget extends StatelessWidget {
             children: [
               Expanded(
                   child: SharedCalendarWidget(
-                      store: startDate, title: 'Başlangıç:')),
+                      store: startDate,
+                      title:
+                          LanguageService.choosenLanguage['key']!.baslangic!)),
               Expanded(
-                  child:
-                      SharedCalendarWidget(store: finishDate, title: 'Bitiş:')
-                          .getPaddingOnly(
-                              context: context, left: 0.02, right: 0.02)),
+                  child: SharedCalendarWidget(
+                          store: finishDate,
+                          title: LanguageService.choosenLanguage['key']!.bitis!)
+                      .getPaddingOnly(
+                          context: context, left: 0.02, right: 0.02)),
               customButton(
-                  context: context, buttonText: 'Göster', onTap: onTap),
+                  context: context,
+                  buttonText: LanguageService.choosenLanguage['key']!.goster!,
+                  onTap: onTap),
             ],
           ),
           child != null ? child! : const SizedBox()

@@ -25,6 +25,24 @@ mixin _$BottomNavbarWidgetModel on _BottomNavbarWidgetModelBase, Store {
     });
   }
 
+  late final _$isInitializeLanguageAtom = Atom(
+      name: '_BottomNavbarWidgetModelBase.isInitializeLanguage',
+      context: context);
+
+  @override
+  bool get isInitializeLanguage {
+    _$isInitializeLanguageAtom.reportRead();
+    return super.isInitializeLanguage;
+  }
+
+  @override
+  set isInitializeLanguage(bool value) {
+    _$isInitializeLanguageAtom.reportWrite(value, super.isInitializeLanguage,
+        () {
+      super.isInitializeLanguage = value;
+    });
+  }
+
   late final _$pagesAtom =
       Atom(name: '_BottomNavbarWidgetModelBase.pages', context: context);
 
@@ -39,6 +57,14 @@ mixin _$BottomNavbarWidgetModel on _BottomNavbarWidgetModelBase, Store {
     _$pagesAtom.reportWrite(value, super.pages, () {
       super.pages = value;
     });
+  }
+
+  late final _$initializeAsyncAction =
+      AsyncAction('_BottomNavbarWidgetModelBase.initialize', context: context);
+
+  @override
+  Future<void> initialize() {
+    return _$initializeAsyncAction.run(() => super.initialize());
   }
 
   late final _$_BottomNavbarWidgetModelBaseActionController =
@@ -59,6 +85,7 @@ mixin _$BottomNavbarWidgetModel on _BottomNavbarWidgetModelBase, Store {
   String toString() {
     return '''
 currentIndex: ${currentIndex},
+isInitializeLanguage: ${isInitializeLanguage},
 pages: ${pages}
     ''';
   }

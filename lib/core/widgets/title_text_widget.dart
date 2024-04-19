@@ -12,6 +12,6 @@ class CustomTitleText extends StatelessWidget {
         style: Theme.of(context).textTheme.headlineMedium!.copyWith(
             color: color,
             fontWeight: FontWeight.bold,
-            fontFamily: GoogleFonts.merriweather().fontFamily));
+            fontFamily: GoogleFonts.poppins().fontFamily));
   }
 }

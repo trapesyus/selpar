@@ -14,6 +14,8 @@ import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/text_widget.dart';
 import 'package:selpar/core/widgets/textfield_widget.dart';
 
+import '../../../service/language/language_service/language_service.dart';
+
 // ignore: must_be_immutable
 class CustomBuySellWidget extends StatelessWidget {
   final Function() stokAdiSearchOnTap;
@@ -59,7 +61,8 @@ class CustomBuySellWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CustomText(
-                                text: 'Fatura Tipi:',
+                                text: LanguageService
+                                    .choosenLanguage['key']!.faturaTipi!,
                                 fontSize: 14,
                                 isBold: true,
                                 color: ColorConstants.defaultTextColor),
@@ -73,7 +76,8 @@ class CustomBuySellWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CustomText(
-                                text: 'KDV Tipi:',
+                                text: LanguageService
+                                    .choosenLanguage['key']!.kdvTipi!,
                                 isBold: true,
                                 color: ColorConstants.defaultTextColor),
                           ),
@@ -87,7 +91,8 @@ class CustomBuySellWidget extends StatelessWidget {
                 : Row(
                     children: [
                       CustomText(
-                              text: 'KDV Tipi:',
+                              text: LanguageService
+                                  .choosenLanguage['key']!.kdvTipi!,
                               color: ColorConstants.defaultTextColor)
                           .getPaddingOnly(context: context, right: 0.02),
                       Expanded(
@@ -100,14 +105,14 @@ class CustomBuySellWidget extends StatelessWidget {
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
               sizeTop: 0.02,
-              label: 'Vergi No',
+              label: LanguageService.choosenLanguage['key']!.vergiNo!,
               labelStyle: true,
             ),
             CustomTextField(
               controller: null,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Vergi Dairesi',
+              label: LanguageService.choosenLanguage['key']!.vergiDairesi!,
               labelStyle: true,
             ),
             CustomTextField(
@@ -115,7 +120,7 @@ class CustomBuySellWidget extends StatelessWidget {
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
               sizeBottom: 0.02,
-              label: 'Adres',
+              label: LanguageService.choosenLanguage['key']!.adres!,
               labelStyle: true,
             ),
             Row(
@@ -137,7 +142,7 @@ class CustomBuySellWidget extends StatelessWidget {
                     horizontalHeight: 0.04,
                     verticalHeight: 0.01,
                     sizeTop: 0.02,
-                    label: 'GSM',
+                    label: LanguageService.choosenLanguage['key']!.gsm!,
                     labelStyle: true,
                   ).getPaddingOnly(context: context, right: 0.02),
                 ),
@@ -148,7 +153,7 @@ class CustomBuySellWidget extends StatelessWidget {
                     horizontalHeight: 0.04,
                     verticalHeight: 0.01,
                     sizeTop: 0.02,
-                    label: 'Telefon',
+                    label: LanguageService.choosenLanguage['key']!.telefon!,
                     labelStyle: true,
                   ),
                 ),
@@ -159,7 +164,7 @@ class CustomBuySellWidget extends StatelessWidget {
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
               sizeBottom: 0.02,
-              label: 'E-Mail',
+              label: LanguageService.choosenLanguage['key']!.mail!,
               labelStyle: true,
             ),
             Row(
@@ -169,7 +174,7 @@ class CustomBuySellWidget extends StatelessWidget {
                   controller: null,
                   horizontalHeight: 0.04,
                   verticalHeight: 0.01,
-                  label: 'Stok Numarası',
+                  label: LanguageService.choosenLanguage['key']!.stokNumarasi!,
                   labelStyle: true,
                 )),
                 Container(
@@ -187,7 +192,9 @@ class CustomBuySellWidget extends StatelessWidget {
                         right: 0.02,
                         bottom: 0.01),
                 CustomContainerButton(
-                        buttonText: 'Ara', onTap: stokNumarasiSearchOnTap)
+                        buttonText:
+                            LanguageService.choosenLanguage['key']!.ara!,
+                        onTap: stokNumarasiSearchOnTap)
                     .getPaddingOnly(context: context, bottom: 0.01)
               ],
             ),
@@ -198,11 +205,13 @@ class CustomBuySellWidget extends StatelessWidget {
                   controller: null,
                   horizontalHeight: 0.04,
                   verticalHeight: 0.01,
-                  label: 'Stok Adı',
+                  label: LanguageService.choosenLanguage['key']!.stokAdi!,
                   labelStyle: true,
                 )),
                 CustomContainerButton(
-                        buttonText: 'Ara', onTap: stokAdiSearchOnTap)
+                        buttonText:
+                            LanguageService.choosenLanguage['key']!.ara!,
+                        onTap: stokAdiSearchOnTap)
                     .getPaddingOnly(context: context, left: 0.02, bottom: 0.01)
               ],
             ),
@@ -213,7 +222,7 @@ class CustomBuySellWidget extends StatelessWidget {
                   controller: null,
                   horizontalHeight: 0.04,
                   verticalHeight: 0.01,
-                  label: 'Miktar',
+                  label: LanguageService.choosenLanguage['key']!.miktar!,
                   labelStyle: true,
                 )),
                 Expanded(
@@ -222,7 +231,7 @@ class CustomBuySellWidget extends StatelessWidget {
                   horizontalHeight: 0.04,
                   verticalHeight: 0.01,
                   sizeLeft: 0.02,
-                  label: 'Fiyat',
+                  label: LanguageService.choosenLanguage['key']!.fiyat!,
                   labelStyle: true,
                 )),
                 Expanded(
@@ -230,7 +239,7 @@ class CustomBuySellWidget extends StatelessWidget {
                     controller: null,
                     horizontalHeight: 0.04,
                     verticalHeight: 0.01,
-                    label: 'IST',
+                    label: LanguageService.choosenLanguage['key']!.ist!,
                     labelStyle: true,
                     sizeLeft: 0.02,
                   ),
@@ -244,7 +253,8 @@ class CustomBuySellWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       CustomText(
-                              text: 'KDV:',
+                              text:
+                                  LanguageService.choosenLanguage['key']!.kdv!,
                               color: ColorConstants.defaultTextColor)
                           .getPaddingOnly(
                               context: context, right: 0.02, left: 0.02),
@@ -260,7 +270,9 @@ class CustomBuySellWidget extends StatelessWidget {
                         .getPaddingOnly(context: context, left: 0.04))
               ],
             ),
-            CustomElevatedButton(buttonText: 'Ekle', onPressed: () {})
+            CustomElevatedButton(
+                    buttonText: LanguageService.choosenLanguage['key']!.ekle!,
+                    onPressed: () {})
                 .getPaddingOnly(context: context, bottom: 0.02, top: 0.02),
             Container(
               height: context.getSizeHeight(size: 0.14),
@@ -271,7 +283,7 @@ class CustomBuySellWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomText(
-                          text: 'Toplam ',
+                          text: LanguageService.choosenLanguage['key']!.toplam!,
                           fontSize: 16,
                           isBold: true,
                           color: ColorConstants.defaultTextColor)
@@ -285,7 +297,9 @@ class CustomBuySellWidget extends StatelessWidget {
                     children: [
                       GestureDetector(
                         child: _resultContainer(
-                                context: context, buttonText: 'Kaydet')
+                                context: context,
+                                buttonText: LanguageService
+                                    .choosenLanguage['key']!.kaydet!)
                             .getPaddingOnly(
                                 context: context, right: 0.02, bottom: 0.02),
                       ),

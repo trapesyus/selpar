@@ -24,15 +24,16 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      maxLines: isMaxLines ? maxLines : null,
+      maxLines: isMaxLines ? null : 1,
       overflow: maxLines > 1 && isMaxLines ? TextOverflow.ellipsis : null,
       text,
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           fontStyle: isItalic ? FontStyle.italic : null,
           fontWeight: isBold ? FontWeight.bold : null,
           decoration: isUnderline ? TextDecoration.underline : null,
-          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontFamily: GoogleFonts.poppins().fontFamily,
           color: color,
+          overflow: TextOverflow.visible,
           fontSize: fontSize),
     );
   }

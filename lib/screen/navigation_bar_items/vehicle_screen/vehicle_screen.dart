@@ -9,6 +9,8 @@ import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/kapa
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/silinen_kabul_listesi/silinen_kabul_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/tahsilati_yapilmayan_onarimlar/tahsilati_yapilmayan_onarimlar.dart';
 
+import '../../../service/language/language_service/language_service.dart';
+
 class VehicleScreen extends StatelessWidget {
   const VehicleScreen({super.key});
 
@@ -19,7 +21,7 @@ class VehicleScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTitleText(
-                title: 'Servis İşlemleri',
+                title: LanguageService.choosenLanguage['key']!.servisIslemleri!,
                 color: ColorConstants.defaultTextColor)
             .getPaddingOnly(context: context, bottom: 0.24),
         CustomPageRouteButton(

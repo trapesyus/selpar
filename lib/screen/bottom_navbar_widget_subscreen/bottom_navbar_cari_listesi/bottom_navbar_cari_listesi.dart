@@ -33,7 +33,7 @@ class BottomNavbarCariListesi extends StatelessWidget {
           sizeLeft: 0.02,
           sizeRight: 0.02,
           sizeTop: 0.02,
-          label: "Cari'ye göre arama yapın",
+          label: LanguageService.choosenLanguage['key']!.cariyeGoreAramaYapin!,
           labelStyle: true,
         ),
         SizedBox(

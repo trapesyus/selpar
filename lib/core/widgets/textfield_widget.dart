@@ -82,7 +82,7 @@ class CustomTextField extends StatelessWidget {
               // fontFamily: TextFonts.fontChoice[Preferences.fontName],
               fontSize: fontSize,
               decoration: isUnderline ? TextDecoration.underline : null,
-              fontFamily: GoogleFonts.merriweather().fontFamily,
+              fontFamily: GoogleFonts.poppins().fontFamily,
               fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
               fontWeight: isBold ? FontWeight.bold : FontWeight.w500),
           scrollPhysics: const BouncingScrollPhysics(),
@@ -131,16 +131,16 @@ class CustomTextField extends StatelessWidget {
               labelStyle: labelStyle
                   ? TextStyle(
                       color: ColorConstants.bgColor,
-                      fontFamily: GoogleFonts.merriweather().fontFamily)
+                      fontFamily: GoogleFonts.poppins().fontFamily)
                   : null,
               suffixText: suffixText ?? '',
               suffixStyle: TextStyle(
                   color: ColorConstants.whiteColor,
-                  fontFamily: GoogleFonts.merriweather().fontFamily),
+                  fontFamily: GoogleFonts.poppins().fontFamily),
               hintStyle: hintTextStyle
                   ? TextStyle(
                       color: ColorConstants.bgColor,
-                      fontFamily: GoogleFonts.merriweather().fontFamily)
+                      fontFamily: GoogleFonts.poppins().fontFamily)
                   : null,
               hintText: hintText ?? '',
               fillColor: fillColor ? ColorConstants.whiteColor : null),

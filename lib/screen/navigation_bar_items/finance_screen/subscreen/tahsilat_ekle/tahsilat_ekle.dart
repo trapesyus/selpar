@@ -15,6 +15,7 @@ import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/textfield_widget.dart';
 import 'package:selpar/screen/home_screen/home_screen.dart';
 import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/tahsilat_ekle/tahsilat_ekle_model/tahsilat_ekle_model.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 class TahsilatEkle extends StatelessWidget {
   TahsilatEkle({super.key}) {
@@ -35,7 +36,7 @@ class TahsilatEkle extends StatelessWidget {
                   color: ColorConstants.buttonColor),
               onPressed: () =>
                   const HomeScreen().navigateToBack(context: context)),
-          title: 'Tahsilat Ekle',
+          title: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
           centerTitle: false,
           titleStyle: true,
         ),
@@ -51,7 +52,7 @@ class TahsilatEkle extends StatelessWidget {
               sizeTop: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Makbuz No',
+              label: LanguageService.choosenLanguage['key']!.makbuzNo!,
               labelStyle: true,
             ),
             Row(
@@ -64,11 +65,14 @@ class TahsilatEkle extends StatelessWidget {
                     sizeRight: 0.02,
                     horizontalHeight: 0.04,
                     verticalHeight: 0.01,
-                    label: 'Cardi Adı',
+                    label: LanguageService.choosenLanguage['key']!.cariAdi!,
                     labelStyle: true,
                   ),
                 ),
-                CustomContainerButton(buttonText: 'Ara', onTap: () {})
+                CustomContainerButton(
+                        buttonText:
+                            LanguageService.choosenLanguage['key']!.ara!,
+                        onTap: () {})
                     .getPaddingOnly(
                         context: context, bottom: 0.02, right: 0.02),
               ],
@@ -86,7 +90,7 @@ class TahsilatEkle extends StatelessWidget {
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
             SharedCalendarWidget(
                     store: _calendarWidgetModel,
-                    title: 'Tarih Seç',
+                    title: LanguageService.choosenLanguage['key']!.tarihSec!,
                     isTitleRow: true)
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
             _dropDownContainer(
@@ -100,7 +104,7 @@ class TahsilatEkle extends StatelessWidget {
               sizeRight: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Tutar',
+              label: LanguageService.choosenLanguage['key']!.tutar!,
               labelStyle: true,
             ),
             CustomTextField(
@@ -110,10 +114,13 @@ class TahsilatEkle extends StatelessWidget {
               sizeRight: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Açıklama',
+              label: LanguageService.choosenLanguage['key']!.aciklama!,
               labelStyle: true,
             ),
-            CustomElevatedButton(buttonText: 'Tahsilat Ekle', onPressed: () {})
+            CustomElevatedButton(
+                    buttonText:
+                        LanguageService.choosenLanguage['key']!.tahsilatEkle!,
+                    onPressed: () {})
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0)
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),

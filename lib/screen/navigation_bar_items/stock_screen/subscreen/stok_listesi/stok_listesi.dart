@@ -7,6 +7,7 @@ import 'package:selpar/core/helper/custom_container_button/custom_container_butt
 import 'package:selpar/core/widgets/appbar_widget.dart';
 import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/textfield_widget.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 import '../../../../../core/widgets/text_widget.dart';
 
@@ -18,7 +19,7 @@ class StokListesi extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: CustomAppBar(
-        title: 'Stok Listesi',
+        title: LanguageService.choosenLanguage['key']!.stokListesi!,
         leading: CustomIconButton(
             icon: const Icon(CupertinoIcons.back,
                 color: ColorConstants.buttonColor),
@@ -37,7 +38,8 @@ class StokListesi extends StatelessWidget {
                   verticalHeight: 0.01,
                   sizeLeft: 0.02,
                   sizeRight: 0.02,
-                  label: "Stok No'ya göre ara",
+                  label:
+                      LanguageService.choosenLanguage['key']!.stokNoyaGoreAra!,
                   labelStyle: true,
                   isIcon: true,
                   isIconTap: true,
@@ -67,14 +69,17 @@ class StokListesi extends StatelessWidget {
                   sizeBottom: 0.02,
                   sizeLeft: 0.02,
                   sizeRight: 0.02,
-                  label: "Stok adına göre ara",
+                  label:
+                      LanguageService.choosenLanguage['key']!.stokAdinaGoreAra!,
                   labelStyle: true,
                   isIcon: true,
                   isIconTap: true,
                   isIconOnTap: () {},
                 ),
               ),
-              CustomContainerButton(buttonText: 'Ara', onTap: () {})
+              CustomContainerButton(
+                      buttonText: LanguageService.choosenLanguage['key']!.ara!,
+                      onTap: () {})
                   .getPaddingOnly(context: context, bottom: 0.02)
             ],
           ),

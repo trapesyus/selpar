@@ -1,12 +1,18 @@
 class LanguageModel {
   Tr? tr;
   Tr? en;
+  Tr? de;
+  Tr? ru;
+  Tr? flemish;
 
-  LanguageModel({this.tr, this.en});
+  LanguageModel({this.tr, this.en, this.de, this.ru, this.flemish});
 
   LanguageModel.fromJson(Map<String, dynamic> json) {
     tr = json['tr'] != null ? Tr.fromJson(json['tr']) : null;
     en = json['en'] != null ? Tr.fromJson(json['en']) : null;
+    de = json['de'] != null ? Tr.fromJson(json['de']) : null;
+    ru = json['ru'] != null ? Tr.fromJson(json['ru']) : null;
+    flemish = json['flemish'] != null ? Tr.fromJson(json['flemish']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -16,6 +22,15 @@ class LanguageModel {
     }
     if (en != null) {
       data['en'] = en!.toJson();
+    }
+    if (de != null) {
+      data['de'] = de!.toJson();
+    }
+    if (ru != null) {
+      data['ru'] = ru!.toJson();
+    }
+    if (flemish != null) {
+      data['flemish'] = flemish!.toJson();
     }
     return data;
   }
@@ -44,7 +59,7 @@ class Tr {
   String? gunuGecen;
   String? teklif;
   String? stok;
-  String? stokIhtYac;
+  String? stokIhtiyac;
   String? siparis;
   String? cariListesi;
   String? cariListesiniGormekIcinTiklayin;
@@ -120,10 +135,22 @@ class Tr {
   String? urunAdiGirin;
   String? ihtiyacAdedi;
   String? mevcut;
-  String? stokIhtYacRaporu;
+  String? stokIhtiyacRaporu;
   String? alinanVerilenSiparis;
   String? hesap;
   String? ayarlar;
+  String? dilSeciniz;
+  String? turkce;
+  String? ingilizce;
+  String? almanca;
+  String? rusca;
+  String? flemenkce;
+  String? dilSecimiBasariylaGerceklestirildi;
+  String? cikisYap;
+  String? cariyeGoreAramaYapin;
+  String? bugunAcilanKabulKartlari;
+  String? acikKartlar;
+  String? bugunKapatilanKartlar;
 
   Tr(
       {this.girisYap,
@@ -148,7 +175,7 @@ class Tr {
       this.gunuGecen,
       this.teklif,
       this.stok,
-      this.stokIhtYac,
+      this.stokIhtiyac,
       this.siparis,
       this.cariListesi,
       this.cariListesiniGormekIcinTiklayin,
@@ -224,10 +251,22 @@ class Tr {
       this.urunAdiGirin,
       this.ihtiyacAdedi,
       this.mevcut,
-      this.stokIhtYacRaporu,
+      this.stokIhtiyacRaporu,
       this.alinanVerilenSiparis,
       this.hesap,
-      this.ayarlar});
+      this.ayarlar,
+      this.dilSeciniz,
+      this.turkce,
+      this.ingilizce,
+      this.almanca,
+      this.rusca,
+      this.flemenkce,
+      this.dilSecimiBasariylaGerceklestirildi,
+      this.cikisYap,
+      this.cariyeGoreAramaYapin,
+      this.bugunAcilanKabulKartlari,
+      this.acikKartlar,
+      this.bugunKapatilanKartlar});
 
   Tr.fromJson(Map<String, dynamic> json) {
     girisYap = json['girisYap'];
@@ -252,7 +291,7 @@ class Tr {
     gunuGecen = json['gunuGecen'];
     teklif = json['teklif'];
     stok = json['stok'];
-    stokIhtYac = json['stokIhtıyac'];
+    stokIhtiyac = json['stokIhtiyac'];
     siparis = json['siparis'];
     cariListesi = json['cariListesi'];
     cariListesiniGormekIcinTiklayin = json['cariListesiniGormekIcinTiklayin'];
@@ -328,10 +367,23 @@ class Tr {
     urunAdiGirin = json['urunAdiGirin'];
     ihtiyacAdedi = json['ihtiyacAdedi'];
     mevcut = json['mevcut'];
-    stokIhtYacRaporu = json['stokIhtıyacRaporu'];
+    stokIhtiyacRaporu = json['stokIhtiyacRaporu'];
     alinanVerilenSiparis = json['alinanVerilenSiparis'];
     hesap = json['hesap'];
     ayarlar = json['ayarlar'];
+    dilSeciniz = json['dilSeciniz'];
+    turkce = json['turkce'];
+    ingilizce = json['ingilizce'];
+    almanca = json['almanca'];
+    rusca = json['rusca'];
+    flemenkce = json['flemenkce'];
+    dilSecimiBasariylaGerceklestirildi =
+        json['dilSecimiBasariylaGerceklestirildi'];
+    cikisYap = json['cikisYap'];
+    cariyeGoreAramaYapin = json['cariyeGoreAramaYapin'];
+    bugunAcilanKabulKartlari = json['bugunAcilanKabulKartlari'];
+    acikKartlar = json['acikKartlar'];
+    bugunKapatilanKartlar = json['bugunKapatilanKartlar'];
   }
 
   Map<String, dynamic> toJson() {
@@ -358,7 +410,7 @@ class Tr {
     data['gunuGecen'] = gunuGecen;
     data['teklif'] = teklif;
     data['stok'] = stok;
-    data['stokIhtıyac'] = stokIhtYac;
+    data['stokIhtiyac'] = stokIhtiyac;
     data['siparis'] = siparis;
     data['cariListesi'] = cariListesi;
     data['cariListesiniGormekIcinTiklayin'] = cariListesiniGormekIcinTiklayin;
@@ -434,10 +486,23 @@ class Tr {
     data['urunAdiGirin'] = urunAdiGirin;
     data['ihtiyacAdedi'] = ihtiyacAdedi;
     data['mevcut'] = mevcut;
-    data['stokIhtıyacRaporu'] = stokIhtYacRaporu;
+    data['stokIhtiyacRaporu'] = stokIhtiyacRaporu;
     data['alinanVerilenSiparis'] = alinanVerilenSiparis;
     data['hesap'] = hesap;
     data['ayarlar'] = ayarlar;
+    data['dilSeciniz'] = dilSeciniz;
+    data['turkce'] = turkce;
+    data['ingilizce'] = ingilizce;
+    data['almanca'] = almanca;
+    data['rusca'] = rusca;
+    data['flemenkce'] = flemenkce;
+    data['dilSecimiBasariylaGerceklestirildi'] =
+        dilSecimiBasariylaGerceklestirildi;
+    data['cikisYap'] = cikisYap;
+    data['cariyeGoreAramaYapin'] = cariyeGoreAramaYapin;
+    data['bugunAcilanKabulKartlari'] = bugunAcilanKabulKartlari;
+    data['acikKartlar'] = acikKartlar;
+    data['bugunKapatilanKartlar'] = bugunKapatilanKartlar;
     return data;
   }
 }

@@ -18,7 +18,7 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       child: Text(text,
           style: TextStyle(
-              color: color, fontFamily: GoogleFonts.merriweather().fontFamily)),
+              color: color, fontFamily: GoogleFonts.poppins().fontFamily)),
       onPressed: () => onPressed(),
     );
   }

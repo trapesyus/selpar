@@ -19,7 +19,7 @@ class CustomDropDownbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return SizedBox(
-        height: context.getSizeHeight(size: 0.072),
+        height: context.getSizeHeight(size: 0.076),
         child: DropdownButtonFormField<String>(
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
@@ -33,6 +33,11 @@ class CustomDropDownbutton extends StatelessWidget {
                   color: ColorConstants.buttonColor, width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                  color: ColorConstants.buttonColor, width: 2.0),
+            ),
+            disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(
                   color: ColorConstants.buttonColor, width: 2.0),

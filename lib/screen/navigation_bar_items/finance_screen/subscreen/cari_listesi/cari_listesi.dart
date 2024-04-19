@@ -7,6 +7,7 @@ import 'package:selpar/core/extensions/size_extension.dart';
 import 'package:selpar/core/widgets/appbar_widget.dart';
 import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/textfield_widget.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 import 'package:simple_icons/simple_icons.dart';
 
 import '../../../../../core/widgets/text_widget.dart';
@@ -20,7 +21,7 @@ class CariListesi extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: CustomAppBar(
-          title: 'Cari Listesi',
+          title: LanguageService.choosenLanguage['key']!.cariListesi!,
           titleStyle: true,
           centerTitle: false,
           leading: CustomIconButton(
@@ -40,7 +41,8 @@ class CariListesi extends StatelessWidget {
               sizeLeft: 0.02,
               sizeRight: 0.02,
               sizeTop: 0.02,
-              label: "Cari'ye göre arama yapın",
+              label:
+                  LanguageService.choosenLanguage['key']!.cariyeGoreAramaYapin!,
               labelStyle: true,
             ),
             SizedBox(
@@ -72,7 +74,8 @@ class CariListesi extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 CustomText(
-                                    text: 'Alacak / Verecek: ',
+                                    text: LanguageService
+                                        .choosenLanguage['key']!.alacakVerecek!,
                                     isBold: false,
                                     color: ColorConstants.bgColor),
                                 CustomText(
@@ -117,13 +120,15 @@ class CariListesi extends StatelessWidget {
                                 children: [
                                   _cariListButton(
                                           context: context,
-                                          buttonName: 'Ekstra',
+                                          buttonName: LanguageService
+                                              .choosenLanguage['key']!.ekstra!,
                                           onTap: () {})
                                       .getPaddingOnly(
                                           context: context, right: 0.02),
                                   _cariListButton(
                                       context: context,
-                                      buttonName: 'Detay',
+                                      buttonName: LanguageService
+                                          .choosenLanguage['key']!.detay!,
                                       onTap: () {})
                                 ],
                               )

@@ -5,6 +5,7 @@ import 'package:selpar/screen/navigation_bar_items/finance_screen/finance_screen
 import 'package:selpar/screen/navigation_bar_items/order_screen/order_screen.dart';
 import 'package:selpar/screen/navigation_bar_items/stock_screen/stock_screen.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/vehicle_screen.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 import '../../../../screen/home_screen/home_screen.dart';
 import '../../../../screen/navigation_bar_items/online_operation_screen/online_operation_screen.dart';
@@ -18,6 +19,8 @@ abstract class _BottomNavbarWidgetModelBase with Store {
   @observable
   int currentIndex = 0;
   @observable
+  bool isInitializeLanguage = false;
+  @observable
   List<Widget> pages = const <Widget>[
     HomeScreen(),
     VehicleScreen(),
@@ -27,8 +30,14 @@ abstract class _BottomNavbarWidgetModelBase with Store {
     OnlineOperationScreen(),
     OrderScreen()
   ];
+  @action
+  Future<void> initialize() async {
+    await initializeLanguage().whenComplete(() => isInitializeLanguage = true);
+  }
 
-  Future<void> initialize() async {}
+  Future<void> initializeLanguage() async {
+    await LanguageService().getLanguage();
+  }
 
   @action
   void setIndex(int index) {

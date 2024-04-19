@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:selpar/core/constants/color_constants.dart';
 import 'package:selpar/core/constants/images_home_screen_constants.dart';
 import 'package:selpar/core/extensions/navigate_effective_extension.dart';
@@ -10,6 +12,8 @@ import 'package:selpar/core/widgets/textfield_widget.dart';
 import 'package:selpar/screen/home_screen/subscreen/siparis_girisi/verilen_siparis_girisi/verilen_siparis_girisi.dart';
 import 'package:selpar/screen/home_screen/subscreen/stok_ihtiyac_raporu/stok_ihtiyac_raporu.dart';
 import 'package:selpar/screen/home_screen/subscreen/teklif/teklif.dart';
+import 'package:selpar/screen/navigation_bar_items/buy_sell_screen/subscreen/alis_evrak_listesi/alis_evrak_listesi.dart';
+import 'package:selpar/screen/navigation_bar_items/buy_sell_screen/subscreen/satis_evrak_listesi/satis_evrak_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/cari_listesi/cari_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/odeme_ekle/odeme_ekle.dart';
 import 'package:selpar/screen/navigation_bar_items/order_screen/alinan_siparis_girisi/alinan_siparis_girisi.dart';
@@ -39,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                 text: LanguageService.choosenLanguage['key']!.hizliIslemMenusu!,
                 color: ColorConstants.defaultTextColor,
                 fontSize: 18)
-            .getPaddingOnly(context: context, bottom: 0.02, top: 0.04),
+            .getPaddingOnly(context: context, bottom: 0.02, top: 0.02),
         Row(
           children: [
             Expanded(
@@ -87,6 +91,10 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
             ),
+          ],
+        ).getPaddingOnly(context: context, bottom: 0.02),
+        Row(
+          children: [
             Expanded(
               child: _listContainer(
                       context: context,
@@ -95,10 +103,6 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {})
                   .getPaddingOnly(context: context, right: 0.02),
             ),
-          ],
-        ).getPaddingOnly(context: context, bottom: 0.02),
-        Row(
-          children: [
             Expanded(
               child: _listContainer(
                       context: context,
@@ -125,14 +129,19 @@ class HomeScreen extends StatelessWidget {
                           .navigateEffectiveTo(context: context))
                   .getPaddingOnly(context: context, right: 0.02),
             ),
+          ],
+        ).getPaddingOnly(context: context, bottom: 0.02),
+        Row(
+          children: [
             Expanded(
               child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.imageStockNeed,
-                      text: LanguageService.choosenLanguage['key']!.stokIhtYac!,
-                      onPressed: () async => await StokIhtiyacRaporu()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
+                  context: context,
+                  image: ImagesHomeScreenConstants.imageStockNeed,
+                  text: LanguageService.choosenLanguage['key']!.stokIhtiyac ??
+                      'Hata burası',
+                  onPressed: () async => await StokIhtiyacRaporu()
+                      .navigateEffectiveTo(context: context)).getPaddingOnly(
+                  context: context, right: 0.02),
             ),
             Expanded(
               child: _listContainer(
@@ -153,8 +162,28 @@ class HomeScreen extends StatelessWidget {
                               .navigateEffectiveTo(context: context)))
                   .getPaddingOnly(context: context, right: 0.02),
             ),
+            Expanded(
+              child: _listContainer(
+                      context: context,
+                      image: ImagesHomeScreenConstants.imageOrder,
+                      text: LanguageService
+                          .choosenLanguage['key']!.alisEvrakListesi!,
+                      onPressed: () async => await AlisEvrakListesi()
+                          .navigateEffectiveTo(context: context))
+                  .getPaddingOnly(context: context, right: 0.02),
+            ),
+            Expanded(
+              child: _listContainer(
+                      context: context,
+                      image: ImagesHomeScreenConstants.imageOrder,
+                      text: LanguageService
+                          .choosenLanguage['key']!.satisEvrakListesi!,
+                      onPressed: () async => await SatisEvrakListesi()
+                          .navigateEffectiveTo(context: context))
+                  .getPaddingOnly(context: context, right: 0.01),
+            ),
           ],
-        ).getPaddingOnly(context: context, bottom: 0.04),
+        ).getPaddingOnly(context: context, bottom: 0.02),
         _bankStatementContainer(
                 count: '24',
                 context: context,
@@ -242,7 +271,7 @@ class HomeScreen extends StatelessWidget {
 
   CustomTextField _homeScreenSearch() {
     return CustomTextField(
-      sizeBottom: 0.04,
+      sizeBottom: 0.02,
       sizeTop: 0.02,
       verticalHeight: 0.01,
       horizontalHeight: 0.02,
@@ -250,7 +279,7 @@ class HomeScreen extends StatelessWidget {
       isIconTap: true,
       isIconOnTap: () {},
       controller: null,
-      label: 'Başlıklarda ara',
+      label: LanguageService.choosenLanguage['key']!.basliklardaAra!,
       labelStyle: true,
     );
   }
@@ -285,23 +314,30 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(),
-                  CustomText(
-                      text: content,
-                      color: ColorConstants.defaultTextColor,
-                      fontSize: 12,
-                      isBold: true),
-                  Column(
-                    children: [
-                      Image.asset(image,
-                          filterQuality: FilterQuality.high, fit: BoxFit.cover),
-                      CustomText(
-                          text:
-                              '$count ${LanguageService.choosenLanguage['key']!.adet!}',
-                          color: ColorConstants.defaultTextColor,
-                          isBold: true,
-                          fontSize: 12),
-                    ],
+                  Expanded(
+                    flex: 2,
+                    child: CustomText(
+                            isMaxLines: true,
+                            text: content,
+                            color: ColorConstants.defaultTextColor,
+                            fontSize: 12,
+                            isBold: true)
+                        .getPaddingOnly(context: context, left: 0.02),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Image.asset(image,
+                            filterQuality: FilterQuality.high,
+                            fit: BoxFit.cover),
+                        CustomText(
+                            text:
+                                '$count ${LanguageService.choosenLanguage['key']!.adet!}',
+                            color: ColorConstants.defaultTextColor,
+                            isBold: true,
+                            fontSize: 12),
+                      ],
+                    ),
                   ),
                 ],
               )),
@@ -340,7 +376,7 @@ class HomeScreen extends StatelessWidget {
                     .getPaddingOnly(context: context, left: 0.02),
                 CustomText(
                     text:
-                        '${LanguageService.choosenLanguage['key']!.hesapOzeti!}: $content',
+                        '${LanguageService.choosenLanguage['key']!.bakiye!} $content',
                     color: ColorConstants.defaultTextColor,
                     fontSize: 12,
                     isBold: true),

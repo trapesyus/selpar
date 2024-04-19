@@ -29,7 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
         child: Text(buttonText,
             style: TextStyle(
                 color: Colors.white,
-                fontFamily: GoogleFonts.merriweather().fontFamily,
+                fontFamily: GoogleFonts.poppins().fontFamily,
                 // fontFamily: TextFonts.fontChoice[Preferences.fontName],
                 fontSize: 18)));
   }

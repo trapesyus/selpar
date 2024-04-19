@@ -8,6 +8,8 @@ import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/text_widget.dart';
 import 'package:simple_icons/simple_icons.dart';
 
+import '../../../../../service/language/language_service/language_service.dart';
+
 class GelenFatura extends StatelessWidget {
   const GelenFatura({super.key});
 
@@ -16,7 +18,7 @@ class GelenFatura extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: CustomAppBar(
-        title: 'Gelen Fatura',
+        title: LanguageService.choosenLanguage['key']!.gelenFatura!,
         titleStyle: true,
         centerTitle: false,
         leading: CustomIconButton(

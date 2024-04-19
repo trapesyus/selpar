@@ -88,7 +88,7 @@ class CustomAccountTextfield extends StatelessWidget {
               //     ? ColorConstants.blackColor
               //     : Colors.white,
               color: ColorConstants.bgColor,
-              fontFamily: GoogleFonts.merriweather().fontFamily,
+              fontFamily: GoogleFonts.poppins().fontFamily,
               fontSize: fontSize,
               decoration: isUnderline ? TextDecoration.underline : null,
               // fontFamily: GoogleFonts.merriweather().fontFamily,
@@ -145,12 +145,12 @@ class CustomAccountTextfield extends StatelessWidget {
               labelStyle: labelStyle
                   ? TextStyle(
                       color: ColorConstants.textFieldHintTextColor,
-                      fontFamily: GoogleFonts.merriweather().fontFamily)
+                      fontFamily: GoogleFonts.poppins().fontFamily)
                   : null,
               suffixText: suffixText ?? '',
               suffixStyle: TextStyle(
                   color: ColorConstants.whiteColor,
-                  fontFamily: GoogleFonts.merriweather().fontFamily),
+                  fontFamily: GoogleFonts.poppins().fontFamily),
               suffixIcon: isSuffixIcon
                   ? GestureDetector(
                       onTap: () => isPrefixIconOnTap!() ?? () {},
@@ -161,7 +161,7 @@ class CustomAccountTextfield extends StatelessWidget {
               hintStyle: hintTextStyle
                   ? TextStyle(
                       color: ColorConstants.bgColor,
-                      fontFamily: GoogleFonts.merriweather().fontFamily)
+                      fontFamily: GoogleFonts.poppins().fontFamily)
                   : null,
               hintText: hintText ?? '',
               fillColor: fillColor ? ColorConstants.whiteColor : null),

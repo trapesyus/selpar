@@ -32,9 +32,8 @@ class BottomNavbarStok extends StatelessWidget {
                 controller: null,
                 horizontalHeight: 0.04,
                 verticalHeight: 0.01,
-                sizeLeft: 0.02,
                 sizeRight: 0.02,
-                label: "Stok No'ya göre ara",
+                label: LanguageService.choosenLanguage['key']!.stokNoyaGoreAra!,
                 labelStyle: true,
                 isIcon: true,
                 isIconTap: true,
@@ -62,16 +61,18 @@ class BottomNavbarStok extends StatelessWidget {
                 horizontalHeight: 0.04,
                 verticalHeight: 0.01,
                 sizeBottom: 0.02,
-                sizeLeft: 0.02,
                 sizeRight: 0.02,
-                label: "Stok adına göre ara",
+                label:
+                    LanguageService.choosenLanguage['key']!.stokAdinaGoreAra!,
                 labelStyle: true,
                 isIcon: true,
                 isIconTap: true,
                 isIconOnTap: () {},
               ),
             ),
-            CustomContainerButton(buttonText: 'Ara', onTap: () {})
+            CustomContainerButton(
+                    buttonText: LanguageService.choosenLanguage['key']!.ara!,
+                    onTap: () {})
                 .getPaddingOnly(context: context, bottom: 0.02)
           ],
         ),

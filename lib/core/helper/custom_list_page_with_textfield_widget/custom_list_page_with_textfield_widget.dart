@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selpar/core/extensions/padding_extension.dart';
 import 'package:selpar/core/extensions/size_extension.dart';
+import 'package:selpar/service/language/language_service/language_service.dart';
 
 import '../../constants/color_constants.dart';
 import '../../widgets/text_widget.dart';
@@ -34,14 +35,19 @@ class CustomListPageWithTextField extends StatelessWidget {
             children: [
               Expanded(
                   child: SharedCalendarWidget(
-                      store: startDate, title: 'Başlangıç:')),
+                      store: startDate,
+                      title:
+                          LanguageService.choosenLanguage['key']!.baslangic!)),
               Expanded(
-                  child:
-                      SharedCalendarWidget(store: finishDate, title: 'Bitiş:')
-                          .getPaddingOnly(
-                              context: context, left: 0.02, right: 0.02)),
+                  child: SharedCalendarWidget(
+                          store: finishDate,
+                          title: LanguageService.choosenLanguage['key']!.bitis!)
+                      .getPaddingOnly(
+                          context: context, left: 0.02, right: 0.02)),
               _customButton(
-                  context: context, buttonText: 'Göster', onTap: onTap)
+                  context: context,
+                  buttonText: LanguageService.choosenLanguage['key']!.goster!,
+                  onTap: onTap)
             ],
           ),
           child != null ? child! : const SizedBox()

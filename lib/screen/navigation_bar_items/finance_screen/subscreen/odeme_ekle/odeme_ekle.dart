@@ -15,6 +15,7 @@ import 'package:selpar/screen/home_screen/home_screen.dart';
 import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/odeme_ekle/odeme_ekle_model/odeme_ekle_model.dart';
 
 import '../../../../../core/helper/custom_dropdown_button/custom_dropdown_button.dart';
+import '../../../../../service/language/language_service/language_service.dart';
 
 // ignore: must_be_immutable
 class OdemeEkle extends StatelessWidget {
@@ -34,7 +35,7 @@ class OdemeEkle extends StatelessWidget {
                   color: ColorConstants.buttonColor),
               onPressed: () =>
                   const HomeScreen().navigateToBack(context: context)),
-          title: 'Ödeme Ekle',
+          title: LanguageService.choosenLanguage['key']!.odemeEkle!,
           centerTitle: false,
           titleStyle: true,
         ),
@@ -50,7 +51,7 @@ class OdemeEkle extends StatelessWidget {
               sizeTop: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Makbuz No',
+              label: LanguageService.choosenLanguage['key']!.makbuzNo!,
               labelStyle: true,
             ),
             Row(
@@ -63,11 +64,15 @@ class OdemeEkle extends StatelessWidget {
                     sizeRight: 0.02,
                     horizontalHeight: 0.04,
                     verticalHeight: 0.01,
-                    label: 'Cardi Adı',
+                    label: LanguageService.choosenLanguage['key']!.cariAdi!,
                     labelStyle: true,
                   ),
                 ),
-                _searchButton(context: context, buttonText: 'Ara', onTap: () {})
+                _searchButton(
+                        context: context,
+                        buttonText:
+                            LanguageService.choosenLanguage['key']!.ara!,
+                        onTap: () {})
                     .getPaddingOnly(
                         context: context, bottom: 0.02, right: 0.02),
               ],
@@ -85,7 +90,7 @@ class OdemeEkle extends StatelessWidget {
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
             SharedCalendarWidget(
                     store: _odemeEkleModel.calendarSelectDate,
-                    title: 'Tarih Seç:',
+                    title: LanguageService.choosenLanguage['key']!.tarihSec!,
                     isTitleRow: true)
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
             _dropDownContainer(
@@ -99,7 +104,7 @@ class OdemeEkle extends StatelessWidget {
               sizeRight: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Tutar',
+              label: LanguageService.choosenLanguage['key']!.tutar!,
               labelStyle: true,
             ),
             CustomTextField(
@@ -109,10 +114,13 @@ class OdemeEkle extends StatelessWidget {
               sizeRight: 0.02,
               horizontalHeight: 0.04,
               verticalHeight: 0.01,
-              label: 'Açıklama',
+              label: LanguageService.choosenLanguage['key']!.aciklama!,
               labelStyle: true,
             ),
-            CustomElevatedButton(buttonText: 'Ödeme Ekle', onPressed: () {})
+            CustomElevatedButton(
+                    buttonText:
+                        LanguageService.choosenLanguage['key']!.odemeEkle!,
+                    onPressed: () {})
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0)
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),

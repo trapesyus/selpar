@@ -23,11 +23,13 @@ class CustomLabelText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      maxLines: 1,
       label,
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
           fontStyle: isItalic ? FontStyle.italic : null,
-          fontFamily: GoogleFonts.merriweather().fontFamily,
+          fontFamily: GoogleFonts.poppins().fontFamily,
           fontSize: fontSize,
+          overflow: TextOverflow.ellipsis,
           // fontFamily: GoogleFonts.merriweather().fontFamily,
           color: isColorNotWhite
               ? ColorConstants.bgColor
