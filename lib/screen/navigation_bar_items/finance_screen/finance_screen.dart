@@ -26,8 +26,8 @@ class FinanceScreen extends StatelessWidget {
             .getPaddingOnly(context: context, bottom: 0.12),
         CustomPageRouteButton(
             text: 'Cari Listesi (Hesap Ekstresi)',
-            onPressed: () async => await const CariListesi()
-                .navigateEffectiveTo(context: context)),
+            onPressed: () async =>
+                await CariListesi().navigateEffectiveTo(context: context)),
         CustomPageRouteButton(
             text: 'Tahsilat Ekle',
             onPressed: () async =>

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:selpar/core/constants/color_constants.dart';
 import 'package:selpar/core/constants/images_home_screen_constants.dart';
 import 'package:selpar/core/extensions/navigate_effective_extension.dart';
@@ -9,6 +9,7 @@ import 'package:selpar/core/extensions/size_extension.dart';
 import 'package:selpar/core/widgets/icon_button_widget.dart';
 import 'package:selpar/core/widgets/text_widget.dart';
 import 'package:selpar/core/widgets/textfield_widget.dart';
+import 'package:selpar/screen/home_screen/home_screen_model/home_screen_model.dart';
 import 'package:selpar/screen/home_screen/subscreen/siparis_girisi/verilen_siparis_girisi/verilen_siparis_girisi.dart';
 import 'package:selpar/screen/home_screen/subscreen/stok_ihtiyac_raporu/stok_ihtiyac_raporu.dart';
 import 'package:selpar/screen/home_screen/subscreen/teklif/teklif.dart';
@@ -19,182 +20,269 @@ import 'package:selpar/screen/navigation_bar_items/finance_screen/subscreen/odem
 import 'package:selpar/screen/navigation_bar_items/order_screen/alinan_siparis_girisi/alinan_siparis_girisi.dart';
 import 'package:selpar/screen/navigation_bar_items/stock_screen/subscreen/stok_listesi/stok_listesi.dart';
 import 'package:selpar/service/language/language_service/language_service.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import '../navigation_bar_items/finance_screen/subscreen/tahsilat_ekle/tahsilat_ekle.dart';
 import 'subscreen/cek_senet/alinan_cek_senet/alinan_cek_senet.dart';
 import 'subscreen/cek_senet/verilen_cek_senet/verilen_cek_senet.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  final HomeScreenModel _homeScreenModel = HomeScreenModel();
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const BouncingScrollPhysics(),
-      shrinkWrap: true,
-      children: [
-        _homeScreenSearch(),
-        _walletContainer(
-            context: context,
-            height: 0.08,
-            content: '1000₺',
-            image: ImagesHomeScreenConstants.bakiye),
-        CustomText(
-                text: LanguageService.choosenLanguage['key']!.hizliIslemMenusu!,
-                color: ColorConstants.defaultTextColor,
-                fontSize: 18)
-            .getPaddingOnly(context: context, bottom: 0.02, top: 0.02),
-        Row(
-          children: [
-            Expanded(
-              child: _listContainer(
-                  context: context,
-                  image: ImagesHomeScreenConstants.tahsilatEkle,
-                  text: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
-                  onPressed: () async => await TahsilatEkle()
-                      .navigateEffectiveTo(context: context)).getPaddingOnly(
-                  context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.odemeEkle,
-                      text: LanguageService.choosenLanguage['key']!.odemeEkle!,
-                      onPressed: () async => await OdemeEkle()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                  context: context,
-                  image: ImagesHomeScreenConstants.cekSenet,
-                  text: LanguageService.choosenLanguage['key']!.cekSenet!,
-                  onPressed: () => _customShowDialog(
+    return Observer(builder: (context) {
+      return _homeScreenModel.isSearching
+          ? ListView(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                _homeScreenSearch(),
+                _homeScreenModel.pagesData.isNotEmpty
+                    ? SizedBox(
+                        height: context.getSizeHeight(size: 0.8),
+                        child: ListView.separated(
+                          itemCount: _homeScreenModel.pagesData.length,
+                          separatorBuilder: (context, index) => SizedBox(
+                            height: context.getSizeHeight(size: 0.02),
+                          ),
+                          itemBuilder: (context, index) => Container(
+                            color: ColorConstants.hintDarkContainerColor,
+                            child: ListTile(
+                              title: CustomText(
+                                  text: _homeScreenModel.pagesData[index],
+                                  color: ColorConstants.bgColor),
+                              trailing: CustomIconButton(
+                                  icon: const Icon(CupertinoIcons.forward,
+                                      color: ColorConstants.buttonColor),
+                                  onPressed: () async => await _homeScreenModel
+                                      .navigateToSerachinPage(
+                                          _homeScreenModel.pagesData[index],
+                                          context)),
+                            ),
+                          ),
+                        ),
+                      )
+                    : CustomText(
+                        isMaxLines: true,
+                        text:
+                            'Yanlış yazdınız ya da aradığınız sayfa mevcut değil',
+                        color: ColorConstants.bgColor)
+              ],
+            ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0)
+          : ListView(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                _homeScreenSearch(),
+                Observer(builder: (_) {
+                  return _homeScreenModel.dataAdvert.isNotEmpty
+                      ? CarouselSlider(
+                          options: CarouselOptions(
+                              height: context.getSizeHeight(size: 0.2),
+                              aspectRatio: 16 / 9,
+                              viewportFraction: 0.8,
+                              initialPage: 0,
+                              enableInfiniteScroll: true,
+                              reverse: false,
+                              autoPlay: true,
+                              autoPlayInterval: const Duration(seconds: 5),
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                              enlargeCenterPage: true,
+                              enlargeFactor: 0.3,
+                              onPageChanged: (index, reason) {},
+                              scrollDirection: Axis.horizontal),
+                          items: [
+                            for (int i = 0;
+                                i < _homeScreenModel.dataAdvert.length;
+                                i++)
+                              Image.network(_homeScreenModel.dataAdvert[i])
+                          ],
+                        )
+                      : const SizedBox();
+                }).getPaddingOnly(context: context, bottom: 0.02),
+                _walletContainer(
+                    context: context,
+                    height: 0.08,
+                    content: '1000₺',
+                    image: ImagesHomeScreenConstants.bakiye),
+                CustomText(
+                        text: LanguageService
+                            .choosenLanguage['key']!.hizliIslemMenusu!,
+                        color: ColorConstants.defaultTextColor,
+                        fontSize: 18)
+                    .getPaddingOnly(context: context, bottom: 0.02, top: 0.02),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.tahsilatEkle,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.tahsilatEkle!,
+                              onPressed: () async => await TahsilatEkle()
+                                  .navigateEffectiveTo(context: context))
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.odemeEkle,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.odemeEkle!,
+                              onPressed: () async => await OdemeEkle()
+                                  .navigateEffectiveTo(context: context))
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                          context: context,
+                          image: ImagesHomeScreenConstants.cekSenet,
+                          text:
+                              LanguageService.choosenLanguage['key']!.cekSenet!,
+                          onPressed: () => _customShowDialog(
+                                context: context,
+                                title: LanguageService.choosenLanguage['key']!
+                                    .alinanVerilenCekSenet!,
+                                firstSubTitle: LanguageService
+                                    .choosenLanguage['key']!.verilenCekSenet!,
+                                firstOnTap: () async => await VerilenCekSenet()
+                                    .navigateEffectiveTo(context: context),
+                                secondSubtitle: LanguageService
+                                    .choosenLanguage['key']!.alinanCekSenet!,
+                                secondOnTap: () async => await AlinanCekSenet()
+                                    .navigateEffectiveTo(context: context),
+                              )).getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.satisGiris,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.satisGiris!,
+                              onPressed: () {})
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                  ],
+                ).getPaddingOnly(context: context, bottom: 0.02),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.gunuGelen,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.gunuGelen!,
+                              onPressed: () {})
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.gunuGecen,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.gunuGecen!,
+                              onPressed: () {})
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                          context: context,
+                          image: ImagesHomeScreenConstants.teklif,
+                          text: LanguageService.choosenLanguage['key']!.teklif!,
+                          onPressed: () async => await Teklif()
+                              .navigateEffectiveTo(
+                                  context: context)).getPaddingOnly(
+                          context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                          context: context,
+                          image: ImagesHomeScreenConstants.stok,
+                          text: LanguageService.choosenLanguage['key']!.stok!,
+                          onPressed: () async => await const StokListesi()
+                              .navigateEffectiveTo(
+                                  context: context)).getPaddingOnly(
+                          context: context, right: 0.02),
+                    ),
+                  ],
+                ).getPaddingOnly(context: context, bottom: 0.02),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.stokIhtiyac,
+                              text: LanguageService
+                                      .choosenLanguage['key']!.stokIhtiyac ??
+                                  'Hata burası',
+                              onPressed: () async => await StokIhtiyacRaporu()
+                                  .navigateEffectiveTo(context: context))
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                          context: context,
+                          image: ImagesHomeScreenConstants.siparis,
+                          text: LanguageService
+                              .choosenLanguage['key']!.siparis!,
+                          onPressed: () => _customShowDialog(
+                              context: context,
+                              title: LanguageService.choosenLanguage['key']!
+                                  .alinanVerilenSiparis!,
+                              firstSubTitle: LanguageService
+                                  .choosenLanguage['key']!
+                                  .verilenSiparisGirisi!,
+                              firstOnTap: () async =>
+                                  await VerilenSiparisGirisi()
+                                      .navigateEffectiveTo(context: context),
+                              secondSubtitle: LanguageService
+                                  .choosenLanguage['key']!.alinanSiparisGirisi!,
+                              secondOnTap: () async =>
+                                  await AlinanSiparisGirisi()
+                                      .navigateEffectiveTo(
+                                          context: context))).getPaddingOnly(
+                          context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                              context: context,
+                              image: ImagesHomeScreenConstants.alisEvrakListesi,
+                              text: LanguageService
+                                  .choosenLanguage['key']!.alisEvrakListesi!,
+                              onPressed: () async => await AlisEvrakListesi()
+                                  .navigateEffectiveTo(context: context))
+                          .getPaddingOnly(context: context, right: 0.02),
+                    ),
+                    Expanded(
+                      child: _listContainer(
+                          context: context,
+                          image: ImagesHomeScreenConstants.satisEvrakListesi,
+                          text: LanguageService
+                              .choosenLanguage['key']!.satisEvrakListesi!,
+                          onPressed: () async => await SatisEvrakListesi()
+                              .navigateEffectiveTo(
+                                  context: context)).getPaddingOnly(
+                          context: context, right: 0.01),
+                    ),
+                  ],
+                ).getPaddingOnly(context: context, bottom: 0.02),
+                _bankStatementContainer(
+                        count: '24',
                         context: context,
                         title: LanguageService
-                            .choosenLanguage['key']!.alinanVerilenCekSenet!,
-                        firstSubTitle: LanguageService
-                            .choosenLanguage['key']!.verilenCekSenet!,
-                        firstOnTap: () async => await VerilenCekSenet()
-                            .navigateEffectiveTo(context: context),
-                        secondSubtitle: LanguageService
-                            .choosenLanguage['key']!.alinanCekSenet!,
-                        secondOnTap: () async => await AlinanCekSenet()
-                            .navigateEffectiveTo(context: context),
-                      )).getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.satisGiris,
-                      text: LanguageService.choosenLanguage['key']!.satisGiris!,
-                      onPressed: () {})
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-          ],
-        ).getPaddingOnly(context: context, bottom: 0.02),
-        Row(
-          children: [
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.gunuGelen,
-                      text: LanguageService.choosenLanguage['key']!.gunuGelen!,
-                      onPressed: () {})
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.gunuGecen,
-                      text: LanguageService.choosenLanguage['key']!.gunuGecen!,
-                      onPressed: () {})
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.teklif,
-                      text: LanguageService.choosenLanguage['key']!.teklif!,
-                      onPressed: () async =>
-                          await Teklif().navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.stok,
-                      text: LanguageService.choosenLanguage['key']!.stok!,
-                      onPressed: () async => await const StokListesi()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-          ],
-        ).getPaddingOnly(context: context, bottom: 0.02),
-        Row(
-          children: [
-            Expanded(
-              child: _listContainer(
-                  context: context,
-                  image: ImagesHomeScreenConstants.stokIhtiyac,
-                  text: LanguageService.choosenLanguage['key']!.stokIhtiyac ??
-                      'Hata burası',
-                  onPressed: () async => await StokIhtiyacRaporu()
-                      .navigateEffectiveTo(context: context)).getPaddingOnly(
-                  context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.siparis,
-                      text: LanguageService.choosenLanguage['key']!.siparis!,
-                      onPressed: () => _customShowDialog(
-                          context: context,
-                          title: LanguageService
-                              .choosenLanguage['key']!.alinanVerilenSiparis!,
-                          firstSubTitle: LanguageService
-                              .choosenLanguage['key']!.verilenSiparisGirisi!,
-                          firstOnTap: () async => await VerilenSiparisGirisi()
-                              .navigateEffectiveTo(context: context),
-                          secondSubtitle: LanguageService
-                              .choosenLanguage['key']!.alinanSiparisGirisi!,
-                          secondOnTap: () async => await AlinanSiparisGirisi()
-                              .navigateEffectiveTo(context: context)))
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.alisEvrakListesi,
-                      text: LanguageService
-                          .choosenLanguage['key']!.alisEvrakListesi!,
-                      onPressed: () async => await AlisEvrakListesi()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.02),
-            ),
-            Expanded(
-              child: _listContainer(
-                      context: context,
-                      image: ImagesHomeScreenConstants.satisEvrakListesi,
-                      text: LanguageService
-                          .choosenLanguage['key']!.satisEvrakListesi!,
-                      onPressed: () async => await SatisEvrakListesi()
-                          .navigateEffectiveTo(context: context))
-                  .getPaddingOnly(context: context, right: 0.01),
-            ),
-          ],
-        ).getPaddingOnly(context: context, bottom: 0.02),
-        _bankStatementContainer(
-                count: '24',
-                context: context,
-                title: LanguageService.choosenLanguage['key']!.cariListesi!,
-                content: LanguageService
-                    .choosenLanguage['key']!.cariListesiniGormekIcinTiklayin!,
-                image: ImagesHomeScreenConstants.cariListesi,
-                height: 0.12)
-            .getPaddingOnly(context: context, bottom: 0.02),
-      ],
-    ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0);
+                            .choosenLanguage['key']!.cariListesi!,
+                        content: LanguageService.choosenLanguage['key']!
+                            .cariListesiniGormekIcinTiklayin!,
+                        image: ImagesHomeScreenConstants.cariListesi,
+                        height: 0.12)
+                    .getPaddingOnly(context: context, bottom: 0.02),
+              ],
+            ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0);
+    });
   }
 
   Future<dynamic> _customShowDialog(
@@ -220,7 +308,9 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(),
-                    CustomText(text: title, color: ColorConstants.bgColor),
+                    Expanded(
+                        child: CustomText(
+                            text: title, color: ColorConstants.bgColor)),
                     CustomIconButton(
                         icon: const Icon(Icons.close,
                             color: ColorConstants.bgColor),
@@ -271,14 +361,16 @@ class HomeScreen extends StatelessWidget {
 
   CustomTextField _homeScreenSearch() {
     return CustomTextField(
+      controller: _homeScreenModel.pageSearchController,
       sizeBottom: 0.02,
       sizeTop: 0.02,
       verticalHeight: 0.01,
       horizontalHeight: 0.02,
       isIcon: true,
       isIconTap: true,
-      isIconOnTap: () {},
-      controller: null,
+      isIconOnTap: () => _homeScreenModel.pageSearchOperation(
+          pageSearchControllerValue:
+              _homeScreenModel.pageSearchController.value.text),
       label: LanguageService.choosenLanguage['key']!.basliklardaAra!,
       labelStyle: true,
     );
@@ -292,7 +384,7 @@ class HomeScreen extends StatelessWidget {
       required String title,
       required String image}) {
     return GestureDetector(
-      onTap: () => const CariListesi().navigateEffectiveTo(context: context),
+      onTap: () => CariListesi().navigateEffectiveTo(context: context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -403,7 +495,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: context.getSizeHeight(size: 0.06),
+            height: context.getSizeHeight(size: 0.08),
             alignment: Alignment.center,
             padding: EdgeInsets.symmetric(
                 vertical: context.getSizeHeight(size: 0.01),

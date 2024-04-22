@@ -130,7 +130,7 @@ class BottomNavbarWidget extends StatelessWidget {
                             context: context,
                             subTitle: LanguageService
                                 .choosenLanguage['key']!.cariListesi!,
-                            onTap: () async => await const CariListesi()
+                            onTap: () async => await CariListesi()
                                 .navigateEffectiveTo(context: context)),
                         _drawerListTile(
                             context: context,
@@ -476,7 +476,7 @@ class BottomNavbarWidget extends StatelessWidget {
               body: Observer(builder: (context) {
                 switch (_bottomNavbarWidgetModel.currentIndex) {
                   case 0:
-                    return const HomeScreen();
+                    return HomeScreen();
                   case 1:
                     return BottomNavbarKart();
                   case 2:

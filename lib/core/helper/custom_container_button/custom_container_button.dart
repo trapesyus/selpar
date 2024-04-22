@@ -15,7 +15,7 @@ class CustomContainerButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: context.getSizeHeight(size: 0.05),
+        height: context.getSizeHeight(size: 0.06),
         width: context.getSizeWidth(size: 0.2),
         alignment: Alignment.center,
         decoration: BoxDecoration(

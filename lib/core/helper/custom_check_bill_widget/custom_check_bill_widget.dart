@@ -36,7 +36,7 @@ class CustomCheckBillWidget extends StatelessWidget {
       child: Container(
         margin:
             EdgeInsets.symmetric(vertical: context.getSizeHeight(size: 0.04)),
-        height: context.getSizeHeight(size: 0.72),
+        height: context.getSizeHeight(size: 0.74),
         child: Column(
           children: [
             Expanded(

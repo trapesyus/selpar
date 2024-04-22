@@ -164,7 +164,7 @@ class SignUpScreen extends StatelessWidget {
             ],
           )
         ],
-      ).getPadding(context: context, sizeWidth: 0.04, sizeHeight: 0),
+      ).getPaddingOnly(context: context, right: 0.04, left: 0.04, bottom: 0.02),
     ));
   }
 }

@@ -29,7 +29,7 @@ abstract class _LanguageScreenModelBase with Store {
   Future<void> getLanguage() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    selectedLanguage = prefs.getString('language')!.isNotEmpty
+    selectedLanguage = prefs.getString('language') != null
         ? prefs.getString('language')! == 'en'
             ? LanguageService.choosenLanguage['key']!.ingilizce!
             : prefs.getString('language')! == 'de'

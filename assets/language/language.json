@@ -114,7 +114,8 @@
         "bugunAcilanKabulKartlari": "Bugün Açılan Kabul Kartları",
         "acikKartlar": "Açık Kartlar",
         "bugunKapatilanKartlar": "Bugün Kapatılan Kartlar",
-        "hesabinYokMu": "Hesabın yok mu?"
+        "hesabinYokMu": "Hesabın yok mu?",
+        "aramayanlisyazdınız": "Yanlış yazdınız ya da aradığınız sayfa mevcut değil"
     },
     "en": {
         "girisYap": "Login",
@@ -231,7 +232,8 @@
         "bugunAcilanKabulKartlari": "Today's Opened Acceptance Cards",
         "acikKartlar": "Open Cards",
         "bugunKapatilanKartlar": "Today's Closed Cards",
-        "hesabinYokMu": "Don't you have an account?"
+        "hesabinYokMu": "Don't you have an account?",
+        "aramayanlisyazdınız": "You typed wrong or the page you are looking for does not exist"
     },
     "de": {
         "girisYap": "Einloggen",
@@ -348,7 +350,8 @@
         "bugunAcilanKabulKartlari": "Heute geöffnete Annahmekarten",
         "acikKartlar": "Offene Karten",
         "bugunKapatilanKartlar": "Heute geschlossene Karten",
-        "hesabinYokMu": "Hast du kein Konto?"
+        "hesabinYokMu": "Hast du kein Konto?",
+        "aramayanlisyazdınız": "Sie haben falsch geschrieben oder die von Ihnen gesuchte Seite existiert nicht"
     },
     "ru": {
         "girisYap": "Войти",
@@ -465,7 +468,8 @@
         "bugunAcilanKabulKartlari": "Открытые карты приема на сегодня",
         "acikKartlar": "Открытые карты",
         "bugunKapatilanKartlar": "Закрытые карты на сегодня",
-        "hesabinYokMu": "У тебя нет аккаунта?"
+        "hesabinYokMu": "У тебя нет аккаунта?",
+        "aramayanlisyazdınız": "Вы неправильно набрали или страница, которую вы ищете, не существует"
     },
     "flemish": {
         "girisYap": "Inloggen",
@@ -582,6 +586,7 @@
         "bugunAcilanKabulKartlari": "Vandaag geopende acceptatiekaarten",
         "acikKartlar": "Open kaarten",
         "bugunKapatilanKartlar": "Vandaag gesloten kaarten",
-        "hesabinYokMu": "Heb je geen account?"
+        "hesabinYokMu": "Heb je geen account?",
+        "aramayanlisyazdınız": "U heeft verkeerd getypt of de pagina die u zoekt bestaat niet"
     }
 }

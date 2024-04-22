@@ -43,22 +43,6 @@ mixin _$BottomNavbarWidgetModel on _BottomNavbarWidgetModelBase, Store {
     });
   }
 
-  late final _$pagesAtom =
-      Atom(name: '_BottomNavbarWidgetModelBase.pages', context: context);
-
-  @override
-  List<Widget> get pages {
-    _$pagesAtom.reportRead();
-    return super.pages;
-  }
-
-  @override
-  set pages(List<Widget> value) {
-    _$pagesAtom.reportWrite(value, super.pages, () {
-      super.pages = value;
-    });
-  }
-
   late final _$initializeAsyncAction =
       AsyncAction('_BottomNavbarWidgetModelBase.initialize', context: context);
 
@@ -85,8 +69,7 @@ mixin _$BottomNavbarWidgetModel on _BottomNavbarWidgetModelBase, Store {
   String toString() {
     return '''
 currentIndex: ${currentIndex},
-isInitializeLanguage: ${isInitializeLanguage},
-pages: ${pages}
+isInitializeLanguage: ${isInitializeLanguage}
     ''';
   }
 }

@@ -59,14 +59,13 @@ class CustomBuySellWidget extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Expanded(
-                            child: CustomText(
-                                text: LanguageService
-                                    .choosenLanguage['key']!.faturaTipi!,
-                                fontSize: 14,
-                                isBold: true,
-                                color: ColorConstants.defaultTextColor),
-                          ),
+                          CustomText(
+                                  text: LanguageService
+                                      .choosenLanguage['key']!.faturaTipi!,
+                                  fontSize: 14,
+                                  isBold: true,
+                                  color: ColorConstants.defaultTextColor)
+                              .getPaddingOnly(context: context, right: 0.02),
                           Expanded(
                               child: CustomDropDownbutton(
                                   items: store.faturaItems)),
@@ -74,13 +73,12 @@ class CustomBuySellWidget extends StatelessWidget {
                       ).getPaddingOnly(context: context, bottom: 0.02),
                       Row(
                         children: [
-                          Expanded(
-                            child: CustomText(
-                                text: LanguageService
-                                    .choosenLanguage['key']!.kdvTipi!,
-                                isBold: true,
-                                color: ColorConstants.defaultTextColor),
-                          ),
+                          CustomText(
+                                  text: LanguageService
+                                      .choosenLanguage['key']!.kdvTipi!,
+                                  isBold: true,
+                                  color: ColorConstants.defaultTextColor)
+                              .getPaddingOnly(context: context, right: 0.07),
                           Expanded(
                               child: CustomDropDownbutton(
                                   items: store.kdvTypeItems))
@@ -287,11 +285,7 @@ class CustomBuySellWidget extends StatelessWidget {
                           fontSize: 16,
                           isBold: true,
                           color: ColorConstants.defaultTextColor)
-                      .getPaddingOnly(
-                          context: context,
-                          bottom: 0.02,
-                          top: 0.02,
-                          left: 0.04),
+                      .getPaddingOnly(context: context, top: 0.02, left: 0.04),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -99,7 +99,7 @@ class CustomTextField extends StatelessWidget {
               ? [LengthLimitingTextInputFormatter(inputFormatters)]
               : null,
           onChanged: (value) async {
-            if (isIconOnTap == null) return;
+            if (isIconOnTap == null) () {};
             await isIconOnTap!();
           }, //Bu fonksiyon sadece arama ikonuna tıklandığında değil, genel olarak her metinde arama yapması için kullanılıyor.
           keyboardType: TextInputType.multiline,

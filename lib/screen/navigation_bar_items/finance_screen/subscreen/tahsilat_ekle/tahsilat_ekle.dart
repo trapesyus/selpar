@@ -34,8 +34,7 @@ class TahsilatEkle extends StatelessWidget {
           leading: CustomIconButton(
               icon: const Icon(CupertinoIcons.back,
                   color: ColorConstants.buttonColor),
-              onPressed: () =>
-                  const HomeScreen().navigateToBack(context: context)),
+              onPressed: () => HomeScreen().navigateToBack(context: context)),
           title: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
           centerTitle: false,
           titleStyle: true,

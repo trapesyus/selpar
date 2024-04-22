@@ -33,8 +33,7 @@ class OdemeEkle extends StatelessWidget {
           leading: CustomIconButton(
               icon: const Icon(CupertinoIcons.back,
                   color: ColorConstants.buttonColor),
-              onPressed: () =>
-                  const HomeScreen().navigateToBack(context: context)),
+              onPressed: () => HomeScreen().navigateToBack(context: context)),
           title: LanguageService.choosenLanguage['key']!.odemeEkle!,
           centerTitle: false,
           titleStyle: true,
