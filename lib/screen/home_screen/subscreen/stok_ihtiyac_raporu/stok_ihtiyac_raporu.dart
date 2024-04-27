@@ -21,76 +21,86 @@ class StokIhtiyacRaporu extends StatelessWidget {
         children: [
           Row(children: [
             Expanded(
-                child: CustomTextField(
-              controller: null,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              sizeBottom: 0.02,
-              sizeTop: 0.02,
-              sizeRight: 0.02,
-              label: 'Stok No Girin',
-              labelStyle: true,
-            ).getPaddingOnly(context: context, right: 0.02)),
-            Expanded(
-                child: CustomTextField(
-              controller: null,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              sizeBottom: 0.02,
-              sizeTop: 0.02,
-              sizeLeft: 0.02,
-              label: 'Ürün Adı Girin',
-              labelStyle: true,
-            ))
+                child:
+                    _stockNo().getPaddingOnly(context: context, right: 0.02)),
+            Expanded(child: _productName())
           ]).getPaddingOnly(context: context, bottom: 0.02),
-          IntrinsicHeight(
-            child: Row(
-              children: [
-                VerticalDivider(
-                    width: context.getSizeWidth(size: 0.02),
-                    thickness: 2,
-                    color: ColorConstants.hintDarkContainerColor),
-                Expanded(
-                  child: CustomText(
-                      text: 'Stok Numarası',
-                      color: ColorConstants.defaultTextColor),
-                ),
-                VerticalDivider(
-                    width: context.getSizeWidth(size: 0.02),
-                    thickness: 2,
-                    color: ColorConstants.hintDarkContainerColor),
-                Expanded(
-                  child: CustomText(
-                      text: 'Stok Adı', color: ColorConstants.defaultTextColor),
-                ),
-                VerticalDivider(
-                    width: context.getSizeWidth(size: 0.02),
-                    thickness: 2,
-                    color: ColorConstants.hintDarkContainerColor),
-                Expanded(
-                  child: CustomText(
-                      text: 'İhtiyaç Adedi',
-                      color: ColorConstants.defaultTextColor),
-                ),
-                VerticalDivider(
-                    width: context.getSizeWidth(size: 0.02),
-                    thickness: 2,
-                    color: ColorConstants.hintDarkContainerColor),
-                Expanded(
-                  child: CustomText(
-                      text: 'Mevcut', color: ColorConstants.defaultTextColor),
-                ),
-                VerticalDivider(
-                    width: context.getSizeWidth(size: 0.02),
-                    thickness: 2,
-                    color: ColorConstants.hintDarkContainerColor),
-              ],
-            ),
-          ),
+          _listElements(context),
           const Divider(
               thickness: 2, color: ColorConstants.hintDarkContainerColor),
         ],
       ),
+    );
+  }
+
+  IntrinsicHeight _listElements(BuildContext context) => IntrinsicHeight(
+        child: Row(
+          children: [
+            VerticalDivider(
+                width: context.getSizeWidth(size: 0.02),
+                thickness: 2,
+                color: ColorConstants.hintDarkContainerColor),
+            Expanded(
+              child: CustomText(
+                  text: 'Stok Numarası',
+                  color: ColorConstants.defaultTextColor),
+            ),
+            VerticalDivider(
+                width: context.getSizeWidth(size: 0.02),
+                thickness: 2,
+                color: ColorConstants.hintDarkContainerColor),
+            Expanded(
+              child: CustomText(
+                  text: 'Stok Adı', color: ColorConstants.defaultTextColor),
+            ),
+            VerticalDivider(
+                width: context.getSizeWidth(size: 0.02),
+                thickness: 2,
+                color: ColorConstants.hintDarkContainerColor),
+            Expanded(
+              child: CustomText(
+                  text: 'İhtiyaç Adedi',
+                  color: ColorConstants.defaultTextColor),
+            ),
+            VerticalDivider(
+                width: context.getSizeWidth(size: 0.02),
+                thickness: 2,
+                color: ColorConstants.hintDarkContainerColor),
+            Expanded(
+              child: CustomText(
+                  text: 'Mevcut', color: ColorConstants.defaultTextColor),
+            ),
+            VerticalDivider(
+                width: context.getSizeWidth(size: 0.02),
+                thickness: 2,
+                color: ColorConstants.hintDarkContainerColor),
+          ],
+        ),
+      );
+
+  CustomTextField _productName() {
+    return CustomTextField(
+      controller: null,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      sizeBottom: 0.02,
+      sizeTop: 0.02,
+      sizeLeft: 0.02,
+      label: 'Ürün Adı Girin',
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _stockNo() {
+    return CustomTextField(
+      controller: null,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      sizeBottom: 0.02,
+      sizeTop: 0.02,
+      sizeRight: 0.02,
+      label: 'Stok No Girin',
+      labelStyle: true,
     );
   }
 }

@@ -23,43 +23,12 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(
-        leading: CustomIconButton(
-            icon: const Icon(CupertinoIcons.back,
-                color: ColorConstants.buttonColor),
-            onPressed: () => Navigator.of(context).pop()),
-      ),
+      appBar: _appBar(context),
       body: ListView(
         children: [
-          CustomTitleText(
-            title: LanguageService.choosenLanguage['key']!.girisYap!,
-            color: ColorConstants.textButtonColor,
-          ),
-          CustomAccountTextfield(
-            controller: null,
-            verticalHeight: 0.02,
-            horizontalHeight: 0.02,
-            sizeLeft: 0.02,
-            sizeBottom: 0.02,
-            sizeRight: 0.02,
-            sizeTop: 0.2,
-            isPrefixIcon: true,
-            prefixImage: ImagesLoginSignUpConstants.mailImage,
-            label: LanguageService.choosenLanguage['key']!.mail!,
-            labelStyle: true,
-          ),
-          CustomAccountTextfield(
-            controller: null,
-            verticalHeight: 0.02,
-            horizontalHeight: 0.02,
-            sizeLeft: 0.02,
-            sizeRight: 0.02,
-            isPrefixIcon: true,
-            prefixImage: ImagesLoginSignUpConstants.passwordImage,
-            label: LanguageService.choosenLanguage['key']!.sifre!,
-            labelStyle: true,
-            passwordType: true,
-          ),
+          _pageName(),
+          _mail(),
+          _password(),
           // Align(
           //   alignment: Alignment.centerRight,
           //   child: TextButton(
@@ -70,33 +39,73 @@ class LoginScreen extends StatelessWidget {
           //         color: ColorConstants.defaultTextColor,
           //       )),
           // ),
-          CustomElevatedButton(
-                  buttonText: LanguageService.choosenLanguage['key']!.girisYap!,
-                  onPressed: () => BottomNavbarWidget()
-                      .navigateEffectiveToPushReplacement(context: context))
-              .getPaddingOnly(
-                  context: context, bottom: 0.3, right: 0.02, left: 0.02),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomText(
-                  text:
-                      '${LanguageService.choosenLanguage['key']!.hesabinYokMu!} ',
-                  color: ColorConstants.defaultTextColor,
-                  fontSize: 10),
-              GestureDetector(
-                  onTap: () =>
-                      SignUpScreen().navigateEffectiveTo(context: context),
-                  child: CustomText(
-                    text: LanguageService.choosenLanguage['key']!.kaydol!,
-                    color: ColorConstants.defaultTextColor,
-                    fontSize: 10,
-                    isBold: true,
-                  ))
-            ],
-          )
+          _logIn(context).getPaddingOnly(
+              context: context, bottom: 0.3, right: 0.02, left: 0.02),
+          _routeSignUpPage(context)
         ],
       ).getPadding(context: context, sizeWidth: 0.04, sizeHeight: 0),
     ));
   }
+
+  Row _routeSignUpPage(BuildContext context) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomText(
+              text: '${LanguageService.choosenLanguage['key']!.hesabinYokMu!} ',
+              color: ColorConstants.defaultTextColor,
+              fontSize: 10),
+          GestureDetector(
+              onTap: () => SignUpScreen().navigateEffectiveTo(context: context),
+              child: CustomText(
+                text: LanguageService.choosenLanguage['key']!.kaydol!,
+                color: ColorConstants.defaultTextColor,
+                fontSize: 10,
+                isBold: true,
+              ))
+        ],
+      );
+
+  CustomElevatedButton _logIn(BuildContext context) => CustomElevatedButton(
+      buttonText: LanguageService.choosenLanguage['key']!.girisYap!,
+      onPressed: () => BottomNavbarWidget()
+          .navigateEffectiveToPushReplacement(context: context));
+
+  CustomAccountTextfield _password() => CustomAccountTextfield(
+        controller: null,
+        verticalHeight: 0.02,
+        horizontalHeight: 0.02,
+        sizeLeft: 0.02,
+        sizeRight: 0.02,
+        isPrefixIcon: true,
+        prefixImage: ImagesLoginSignUpConstants.passwordImage,
+        label: LanguageService.choosenLanguage['key']!.sifre!,
+        labelStyle: true,
+        passwordType: true,
+      );
+
+  CustomAccountTextfield _mail() => CustomAccountTextfield(
+        controller: null,
+        verticalHeight: 0.02,
+        horizontalHeight: 0.02,
+        sizeLeft: 0.02,
+        sizeBottom: 0.02,
+        sizeRight: 0.02,
+        sizeTop: 0.2,
+        isPrefixIcon: true,
+        prefixImage: ImagesLoginSignUpConstants.mailImage,
+        label: LanguageService.choosenLanguage['key']!.mail!,
+        labelStyle: true,
+      );
+
+  CustomTitleText _pageName() => CustomTitleText(
+        title: LanguageService.choosenLanguage['key']!.girisYap!,
+        color: ColorConstants.textButtonColor,
+      );
+
+  CustomAppBar _appBar(BuildContext context) => CustomAppBar(
+        leading: CustomIconButton(
+            icon: const Icon(CupertinoIcons.back,
+                color: ColorConstants.buttonColor),
+            onPressed: () => Navigator.of(context).pop()),
+      );
 }

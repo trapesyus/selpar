@@ -30,50 +30,19 @@ class TahsilatEkle extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(
-          leading: CustomIconButton(
-              icon: const Icon(CupertinoIcons.back,
-                  color: ColorConstants.buttonColor),
-              onPressed: () => HomeScreen().navigateToBack(context: context)),
-          title: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
-          centerTitle: false,
-          titleStyle: true,
-        ),
+        appBar: _appBar(context),
         body: ListView(
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-            CustomTextField(
-              controller: null,
-              sizeBottom: 0.02,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              sizeTop: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.makbuzNo!,
-              labelStyle: true,
-            ),
+            _makbuzNo(),
             Row(
               children: [
                 Expanded(
-                  child: CustomTextField(
-                    controller: null,
-                    sizeBottom: 0.02,
-                    sizeLeft: 0.02,
-                    sizeRight: 0.02,
-                    horizontalHeight: 0.04,
-                    verticalHeight: 0.01,
-                    label: LanguageService.choosenLanguage['key']!.cariAdi!,
-                    labelStyle: true,
-                  ),
+                  child: _cariAdi(),
                 ),
-                CustomContainerButton(
-                        buttonText:
-                            LanguageService.choosenLanguage['key']!.ara!,
-                        onTap: () {})
-                    .getPaddingOnly(
-                        context: context, bottom: 0.02, right: 0.02),
+                _searchButton().getPaddingOnly(
+                    context: context, bottom: 0.02, right: 0.02),
               ],
             ),
             _dropDownContainer(
@@ -87,43 +56,101 @@ class TahsilatEkle extends StatelessWidget {
                     context: context, items: _tahsilatEkleModel.accountItems)
                 .getPadding(
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
-            SharedCalendarWidget(
-                    store: _calendarWidgetModel,
-                    title: LanguageService.choosenLanguage['key']!.tarihSec!,
-                    isTitleRow: true)
+            _selectDate()
                 .getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
             _dropDownContainer(
                     context: context, items: _tahsilatEkleModel.moneyItems)
                 .getPadding(
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
-            CustomTextField(
-              controller: null,
-              sizeBottom: 0.02,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.tutar!,
-              labelStyle: true,
-            ),
-            CustomTextField(
-              controller: null,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.aciklama!,
-              labelStyle: true,
-            ),
-            CustomElevatedButton(
-                    buttonText:
-                        LanguageService.choosenLanguage['key']!.tahsilatEkle!,
-                    onPressed: () {})
-                .getPaddingOnly(
-                    context: context, right: 0.02, left: 0.02, bottom: 0.04)
+            _tutar(),
+            _aciklama(),
+            _tahsilatEkleButton().getPaddingOnly(
+                context: context, right: 0.02, left: 0.02, bottom: 0.04)
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
       ),
+    );
+  }
+
+  CustomElevatedButton _tahsilatEkleButton() {
+    return CustomElevatedButton(
+        buttonText: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
+        onPressed: () {});
+  }
+
+  CustomTextField _aciklama() {
+    return CustomTextField(
+      controller: null,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.aciklama!,
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _tutar() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.tutar!,
+      labelStyle: true,
+    );
+  }
+
+  SharedCalendarWidget _selectDate() {
+    return SharedCalendarWidget(
+        store: _calendarWidgetModel,
+        title: LanguageService.choosenLanguage['key']!.tarihSec!,
+        isTitleRow: true);
+  }
+
+  CustomContainerButton _searchButton() {
+    return CustomContainerButton(
+        buttonText: LanguageService.choosenLanguage['key']!.ara!, onTap: () {});
+  }
+
+  CustomTextField _cariAdi() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.cariAdi!,
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _makbuzNo() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      sizeTop: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.makbuzNo!,
+      labelStyle: true,
+    );
+  }
+
+  CustomAppBar _appBar(BuildContext context) {
+    return CustomAppBar(
+      leading: CustomIconButton(
+          icon: const Icon(CupertinoIcons.back,
+              color: ColorConstants.buttonColor),
+          onPressed: () => HomeScreen().navigateToBack(context: context)),
+      title: LanguageService.choosenLanguage['key']!.tahsilatEkle!,
+      centerTitle: false,
+      titleStyle: true,
     );
   }
 

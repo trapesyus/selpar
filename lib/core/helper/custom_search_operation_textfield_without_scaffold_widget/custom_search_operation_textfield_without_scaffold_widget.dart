@@ -27,26 +27,30 @@ class CustomSearchOperationTextFieldWithoutScaffoldWidget
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       children: [
-        CustomText(
-            text: pageTitle,
-            fontSize: 16,
-            isBold: true,
-            color: ColorConstants.defaultTextColor),
-        CustomTextField(
-          horizontalHeight: 0.04,
-          verticalHeight: 0.01,
-          sizeLeft: 0.02,
-          sizeRight: 0.02,
-          sizeTop: 0.02,
-          sizeBottom: 0.02,
-          label: LanguageService.choosenLanguage['key']!.plakaCariVsArama!,
-          labelStyle: true,
-          isIconOnTap: onTapTextField,
-          isIcon: true,
-          isIconTap: true,
-        ).getPaddingOnly(context: context, left: 0.02, right: 0.02),
+        _pageTitle(),
+        _search().getPaddingOnly(context: context, left: 0.02, right: 0.02),
         child != null ? child! : const SizedBox(),
       ],
     ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0);
   }
+
+  CustomText _pageTitle() => CustomText(
+      text: pageTitle,
+      fontSize: 16,
+      isBold: true,
+      color: ColorConstants.defaultTextColor);
+
+  CustomTextField _search() => CustomTextField(
+        horizontalHeight: 0.04,
+        verticalHeight: 0.01,
+        sizeLeft: 0.02,
+        sizeRight: 0.02,
+        sizeTop: 0.02,
+        sizeBottom: 0.02,
+        label: LanguageService.choosenLanguage['key']!.plakaCariVsArama!,
+        labelStyle: true,
+        isIconOnTap: onTapTextField,
+        isIcon: true,
+        isIconTap: true,
+      );
 }

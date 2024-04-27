@@ -17,13 +17,14 @@ import 'package:selpar/screen/navigation_bar_items/online_operation_screen/subsc
 import 'package:selpar/screen/navigation_bar_items/online_operation_screen/subscreen/giden_fatura/giden_fatura.dart';
 import 'package:selpar/screen/navigation_bar_items/stock_screen/subscreen/orjinal_stok_listesi/orjinal_stok_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/stock_screen/subscreen/stok_listesi/stok_listesi.dart';
-import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/%C3%B6nceki_onarimlar/%C3%B6nceki_onarimlar.dart';
+import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/%C3%B6nceki_onarimlar/onceki_onarimlar.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/kapali_onarimlar/kapali_onarimlar.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/silinen_kabul_listesi/silinen_kabul_listesi.dart';
 import 'package:selpar/screen/navigation_bar_items/vehicle_screen/subscreen/tahsilati_yapilmayan_onarimlar/tahsilati_yapilmayan_onarimlar.dart';
 import 'package:selpar/service/language/language_service/language_service.dart';
 part 'home_screen_model.g.dart';
 
+// ignore: library_private_types_in_public_api
 class HomeScreenModel = _HomeScreenModelBase with _$HomeScreenModel;
 
 abstract class _HomeScreenModelBase with Store {

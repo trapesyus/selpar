@@ -115,7 +115,20 @@
         "acikKartlar": "Açık Kartlar",
         "bugunKapatilanKartlar": "Bugün Kapatılan Kartlar",
         "hesabinYokMu": "Hesabın yok mu?",
-        "aramayanlisyazdınız": "Yanlış yazdınız ya da aradığınız sayfa mevcut değil"
+        "aramayanlisyazdınız": "Yanlış yazdınız ya da aradığınız sayfa mevcut değil",
+        "ekstre": "Ekstre",
+        "alacak": "Alacak",
+        "borc": "Borç",
+        "guncelBakiyesi": "Güncel Bakiyesi:",
+        "cariEkstre": "Cari Ekstre",
+        "cariDetay": "Cari Detay",
+        "adresBilgisiBulunamadi": "Adres Bilgisi Bulunamadı",
+        "telefonBilgisiBulunamadi": "Telefon Bilgisi Bulunamadı",
+        "vergiBilgisiBulunamadi": "Vergi Bilgisi Bulunamadı",
+        "hesabinVarMi": "Hesabın var mı?",
+        "adresBilgisi": "Adres Bilgisi: ",
+        "telefonBilgisi": "Telefon Bilgisi: ",
+        "vergiBilgisi": "Vergi Bilgisi: "
     },
     "en": {
         "girisYap": "Login",
@@ -233,7 +246,20 @@
         "acikKartlar": "Open Cards",
         "bugunKapatilanKartlar": "Today's Closed Cards",
         "hesabinYokMu": "Don't you have an account?",
-        "aramayanlisyazdınız": "You typed wrong or the page you are looking for does not exist"
+        "aramayanlisyazdınız": "You typed wrong or the page you are looking for does not exist",
+        "ekstre": "Statement",
+        "alacak": "Credit",
+        "borc": "Debt",
+        "guncelBakiyesi": "Current Balance:",
+        "cariEkstre": "Current Statement",
+        "cariDetay": "Current Details",
+        "adresBilgisiBulunamadi": "Address Information Not Found",
+        "telefonBilgisiBulunamadi": "Phone Information Not Found",
+        "vergiBilgisiBulunamadi": "Tax Information Not Found",
+        "hesabinVarMi": "Do you have an account?",
+        "adresBilgisi": "Address Information: ",
+        "telefonBilgisi": "Phone Information: ",
+        "vergiBilgisi": "Tax Information: "
     },
     "de": {
         "girisYap": "Einloggen",
@@ -351,7 +377,20 @@
         "acikKartlar": "Offene Karten",
         "bugunKapatilanKartlar": "Heute geschlossene Karten",
         "hesabinYokMu": "Hast du kein Konto?",
-        "aramayanlisyazdınız": "Sie haben falsch geschrieben oder die von Ihnen gesuchte Seite existiert nicht"
+        "aramayanlisyazdınız": "Sie haben falsch geschrieben oder die von Ihnen gesuchte Seite existiert nicht",
+        "ekstre": "Auszug",
+        "alacak": "Guthaben",
+        "borc": "Schuld",
+        "guncelBakiyesi": "Aktueller Kontostand:",
+        "cariEkstre": "Aktueller Auszug",
+        "cariDetay": "Aktuelle Details",
+        "adresBilgisiBulunamadi": "Adressinformation nicht gefunden",
+        "telefonBilgisiBulunamadi": "Telefoninformation nicht gefunden",
+        "vergiBilgisiBulunamadi": "Steuerinformationen nicht gefunden",
+        "hesabinVarMi": "Hast du ein Konto?",
+        "adresBilgisi": "Adressinformation: ",
+        "telefonBilgisi": "Telefoninformation: ",
+        "vergiBilgisi": "Steuerinformationen: "
     },
     "ru": {
         "girisYap": "Войти",
@@ -469,7 +508,20 @@
         "acikKartlar": "Открытые карты",
         "bugunKapatilanKartlar": "Закрытые карты на сегодня",
         "hesabinYokMu": "У тебя нет аккаунта?",
-        "aramayanlisyazdınız": "Вы неправильно набрали или страница, которую вы ищете, не существует"
+        "aramayanlisyazdınız": "Вы неправильно набрали или страница, которую вы ищете, не существует",
+        "ekstre": "Выписка",
+        "alacak": "Кредит",
+        "borc": "Долг",
+        "guncelBakiyesi": "Текущий баланс:",
+        "cariEkstre": "Текущая выписка",
+        "cariDetay": "Текущие детали",
+        "adresBilgisiBulunamadi": "Информация об адресе не найдена",
+        "telefonBilgisiBulunamadi": "Информация о телефоне не найдена",
+        "vergiBilgisiBulunamadi": "Информация о налогах не найдена",
+        "hesabinVarMi": "У вас есть учётная запись?",
+        "adresBilgisi": "Информация об адресе: ",
+        "telefonBilgisi": "Информация о телефоне: ",
+        "vergiBilgisi": "Информация о налогах: "
     },
     "flemish": {
         "girisYap": "Inloggen",
@@ -587,6 +639,19 @@
         "acikKartlar": "Open kaarten",
         "bugunKapatilanKartlar": "Vandaag gesloten kaarten",
         "hesabinYokMu": "Heb je geen account?",
-        "aramayanlisyazdınız": "U heeft verkeerd getypt of de pagina die u zoekt bestaat niet"
+        "aramayanlisyazdınız": "U heeft verkeerd getypt of de pagina die u zoekt bestaat niet",
+        "ekstre": "Uittreksel",
+        "alacak": "Krediet",
+        "borc": "Schuld",
+        "guncelBakiyesi": "Huidige balans:",
+        "cariEkstre": "Huidig overzicht",
+        "cariDetay": "Huidige details",
+        "adresBilgisiBulunamadi": "Adresinformatie niet gevonden",
+        "telefonBilgisiBulunamadi": "Telefooninformatie niet gevonden",
+        "vergiBilgisiBulunamadi": "Belastinginformatie niet gevonden",
+        "hesabinVarMi": "Heeft u een account?",
+        "adresBilgisi": "Adresinformatie: ",
+        "telefonBilgisi": "Telefooninformatie: ",
+        "vergiBilgisi": "Belastinginformatie: "
     }
 }

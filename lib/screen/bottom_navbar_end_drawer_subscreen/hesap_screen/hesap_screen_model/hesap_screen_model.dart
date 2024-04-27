@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 part 'hesap_screen_model.g.dart';
 
-class HespaScreen = _HespaScreenBase with _$HespaScreen;
+// ignore: library_private_types_in_public_api
+class HesapScreenModel = _HesapScreenModelBase with _$HesapScreenModel;
 
-abstract class _HespaScreenBase with Store {}
+abstract class _HesapScreenModelBase with Store {}

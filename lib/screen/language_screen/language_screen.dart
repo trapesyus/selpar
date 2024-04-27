@@ -12,7 +12,7 @@ import 'package:selpar/screen/language_screen/language_screen_model/language_scr
 import 'package:selpar/service/language/language_service/language_service.dart';
 
 class LanguageScreen extends StatelessWidget {
-  final isPreloadingScreen;
+  final bool isPreloadingScreen;
   LanguageScreen({super.key, required this.isPreloadingScreen}) {
     reaction((_) async => await _languageScreenModel.initialize(), (_) {});
   }
@@ -22,34 +22,23 @@ class LanguageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar(
-          leading: CustomIconButton(
-              icon: const Icon(CupertinoIcons.back,
-                  color: ColorConstants.buttonColor),
-              onPressed: () => Navigator.of(context).pop()),
-          title: LanguageService.choosenLanguage['key']!.dilSeciniz!,
-          titleStyle: true,
-        ),
+        appBar: _appBar(context),
         body: _languageScreenModel.isSelectedLanguage
             ? Center(
                 child: Container(
+                  height: context.getSizeHeight(size: 0.5),
                   alignment: Alignment.center,
                   margin: EdgeInsets.symmetric(
                       horizontal: context.getSizeWidth(size: 0.04)),
-                  height: context.getSizeHeight(size: 0.4548),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: const Border.symmetric(
-                          vertical: BorderSide(
-                              color: ColorConstants.hintDarkContainerColor,
-                              width: 2))),
+                      border: Border.all(
+                          color: ColorConstants.hintDarkContainerColor),
+                      borderRadius: BorderRadius.circular(10)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div(),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -69,9 +58,7 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div(),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -91,9 +78,7 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div(),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -113,9 +98,7 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div(),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -134,9 +117,7 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div(),
                       Observer(
                         builder: (_) => RadioListTile<String>(
                           activeColor: ColorConstants.buttonColor,
@@ -156,15 +137,29 @@ class LanguageScreen extends StatelessWidget {
                                   context: context),
                         ),
                       ),
-                      const Divider(
-                          thickness: 2,
-                          color: ColorConstants.hintDarkContainerColor),
+                      _div()
                     ],
                   ),
                 ),
               )
             : CustomProgressLottie(context: context),
       ),
+    );
+  }
+
+  Divider _div() {
+    return const Divider(
+        thickness: 2, color: ColorConstants.hintDarkContainerColor);
+  }
+
+  CustomAppBar _appBar(BuildContext context) {
+    return CustomAppBar(
+      leading: CustomIconButton(
+          icon: const Icon(CupertinoIcons.back,
+              color: ColorConstants.buttonColor),
+          onPressed: () => Navigator.of(context).pop()),
+      title: LanguageService.choosenLanguage['key']!.dilSeciniz!,
+      titleStyle: true,
     );
   }
 }

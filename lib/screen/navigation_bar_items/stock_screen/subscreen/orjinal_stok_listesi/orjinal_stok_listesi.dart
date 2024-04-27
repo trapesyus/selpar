@@ -30,36 +30,48 @@ class OrjinalStokListesi extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: CustomTextField(
-                    controller: null,
-                    horizontalHeight: 0.04,
-                    verticalHeight: 0.01,
-                    sizeLeft: 0.04,
-                    sizeRight: 0.04,
-                    label: LanguageService
-                        .choosenLanguage['key']!.stokNoyaGoreAra!,
-                    labelStyle: true,
-                    isIcon: true,
-                    isIconTap: true,
-                    isIconOnTap: () {},
-                  ),
+                  child: _searchByStockNumber(),
                 ),
-                Container(
-                  width: context.getSizeWidth(size: 0.2),
-                  height: context.getSizeHeight(size: 0.06),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: ColorConstants.buttonColor),
-                  child: CustomIconButton(
-                      icon: const Icon(CupertinoIcons.camera,
-                          color: ColorConstants.whiteColor),
-                      onPressed: () {}),
-                ).getPaddingOnly(context: context, bottom: 0.015),
+                _cameraContainer(context)
+                    .getPaddingOnly(context: context, bottom: 0.015),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Container _cameraContainer(BuildContext context) {
+    return Container(
+      width: context.getSizeWidth(size: 0.2),
+      height: context.getSizeHeight(size: 0.06),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: ColorConstants.buttonColor),
+      child: _cameraButton(),
+    );
+  }
+
+  CustomIconButton _cameraButton() {
+    return CustomIconButton(
+        icon:
+            const Icon(CupertinoIcons.camera, color: ColorConstants.whiteColor),
+        onPressed: () {});
+  }
+
+  CustomTextField _searchByStockNumber() {
+    return CustomTextField(
+      controller: null,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      sizeLeft: 0.04,
+      sizeRight: 0.04,
+      label: LanguageService.choosenLanguage['key']!.stokNoyaGoreAra!,
+      labelStyle: true,
+      isIcon: true,
+      isIconTap: true,
+      isIconOnTap: () {},
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:mobx/mobx.dart';
 import 'package:selpar/app_operations/initial/initial.dart';
 part 'preloading_screen_model.g.dart';
 
+// ignore: library_private_types_in_public_api
 class PreloadingScreenModel = _PreloadingScreenModelBase
     with _$PreloadingScreenModel;
 

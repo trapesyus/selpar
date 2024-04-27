@@ -24,35 +24,44 @@ class CustomSearchOperationTextFieldWidget extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(
-            title: pageTitle,
-            titleStyle: true,
-            centerTitle: false,
-            leading: CustomIconButton(
-                icon: const Icon(CupertinoIcons.back,
-                    color: ColorConstants.textButtonColor),
-                onPressed: () => Navigator.of(context).pop())),
+        appBar: _appBar(context),
         body: ListView(
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
           children: [
-            CustomTextField(
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              sizeTop: 0.02,
-              sizeBottom: 0.02,
-              label: LanguageService.choosenLanguage['key']!.plakaCariVsArama!,
-              labelStyle: true,
-              isIconOnTap: onTapTextField,
-              isIcon: true,
-              isIconTap: true,
-            ).getPaddingOnly(context: context, left: 0.02, right: 0.02),
+            _searchPlakaCari()
+                .getPaddingOnly(context: context, left: 0.02, right: 0.02),
             child != null ? child! : const SizedBox(),
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
       ),
+    );
+  }
+
+  CustomAppBar _appBar(BuildContext context) {
+    return CustomAppBar(
+        title: pageTitle,
+        titleStyle: true,
+        centerTitle: false,
+        leading: CustomIconButton(
+            icon: const Icon(CupertinoIcons.back,
+                color: ColorConstants.textButtonColor),
+            onPressed: () => Navigator.of(context).pop()));
+  }
+
+  CustomTextField _searchPlakaCari() {
+    return CustomTextField(
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      sizeTop: 0.02,
+      sizeBottom: 0.02,
+      label: LanguageService.choosenLanguage['key']!.plakaCariVsArama!,
+      labelStyle: true,
+      isIconOnTap: onTapTextField,
+      isIcon: true,
+      isIconTap: true,
     );
   }
 }

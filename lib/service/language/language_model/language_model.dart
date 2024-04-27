@@ -152,6 +152,20 @@ class Tr {
   String? acikKartlar;
   String? bugunKapatilanKartlar;
   String? hesabinYokMu;
+  String? aramayanlisyazdNZ;
+  String? ekstre;
+  String? alacak;
+  String? borc;
+  String? guncelBakiyesi;
+  String? cariEkstre;
+  String? cariDetay;
+  String? adresBilgisiBulunamadi;
+  String? telefonBilgisiBulunamadi;
+  String? vergiBilgisiBulunamadi;
+  String? hesabinVarMi;
+  String? adresBilgisi;
+  String? telefonBilgisi;
+  String? vergiBilgisi;
 
   Tr(
       {this.girisYap,
@@ -268,7 +282,21 @@ class Tr {
       this.bugunAcilanKabulKartlari,
       this.acikKartlar,
       this.bugunKapatilanKartlar,
-      this.hesabinYokMu});
+      this.hesabinYokMu,
+      this.aramayanlisyazdNZ,
+      this.ekstre,
+      this.alacak,
+      this.borc,
+      this.guncelBakiyesi,
+      this.cariEkstre,
+      this.cariDetay,
+      this.adresBilgisiBulunamadi,
+      this.telefonBilgisiBulunamadi,
+      this.vergiBilgisiBulunamadi,
+      this.hesabinVarMi,
+      this.adresBilgisi,
+      this.telefonBilgisi,
+      this.vergiBilgisi});
 
   Tr.fromJson(Map<String, dynamic> json) {
     girisYap = json['girisYap'];
@@ -387,6 +415,20 @@ class Tr {
     acikKartlar = json['acikKartlar'];
     bugunKapatilanKartlar = json['bugunKapatilanKartlar'];
     hesabinYokMu = json['hesabinYokMu'];
+    aramayanlisyazdNZ = json['aramayanlisyazdınız'];
+    ekstre = json['ekstre'];
+    alacak = json['alacak'];
+    borc = json['borc'];
+    guncelBakiyesi = json['guncelBakiyesi'];
+    cariEkstre = json['cariEkstre'];
+    cariDetay = json['cariDetay'];
+    adresBilgisiBulunamadi = json['adresBilgisiBulunamadi'];
+    telefonBilgisiBulunamadi = json['telefonBilgisiBulunamadi'];
+    vergiBilgisiBulunamadi = json['vergiBilgisiBulunamadi'];
+    hesabinVarMi = json['hesabinVarMi'];
+    adresBilgisi = json['adresBilgisi'];
+    telefonBilgisi = json['telefonBilgisi'];
+    vergiBilgisi = json['vergiBilgisi'];
   }
 
   Map<String, dynamic> toJson() {
@@ -507,6 +549,20 @@ class Tr {
     data['acikKartlar'] = acikKartlar;
     data['bugunKapatilanKartlar'] = bugunKapatilanKartlar;
     data['hesabinYokMu'] = hesabinYokMu;
+    data['aramayanlisyazdınız'] = aramayanlisyazdNZ;
+    data['ekstre'] = ekstre;
+    data['alacak'] = alacak;
+    data['borc'] = borc;
+    data['guncelBakiyesi'] = guncelBakiyesi;
+    data['cariEkstre'] = cariEkstre;
+    data['cariDetay'] = cariDetay;
+    data['adresBilgisiBulunamadi'] = adresBilgisiBulunamadi;
+    data['telefonBilgisiBulunamadi'] = telefonBilgisiBulunamadi;
+    data['vergiBilgisiBulunamadi'] = vergiBilgisiBulunamadi;
+    data['hesabinVarMi'] = hesabinVarMi;
+    data['adresBilgisi'] = adresBilgisi;
+    data['telefonBilgisi'] = telefonBilgisi;
+    data['vergiBilgisi'] = vergiBilgisi;
     return data;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
@@ -28,58 +27,14 @@ class PreloadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar(
-          leading: const SizedBox(),
-          actions: [
-            CustomIconButton(
-              icon: const Icon(
-                Icons.language,
-                color: ColorConstants.buttonColor,
-                size: 28,
-              ),
-              onPressed: () async =>
-                  await LanguageScreen(isPreloadingScreen: true)
-                      .navigateEffectiveTo(context: context),
-            ),
-          ],
-        ),
+        appBar: _appBar(context),
         body: Observer(builder: (context) {
           return _preloadingScreenModel.isInitial
               ? Column(
                   children: [
-                    Expanded(
-                        flex: 2,
-                        child: Lottie.asset('assets/lottie/splash.json')),
-                    Expanded(
-                        child: ListTile(
-                      title: CustomTitleText(
-                        title: 'Selpar',
-                        color: ColorConstants.textButtonColor,
-                      ),
-                      subtitle: CustomText(
-                          text: LanguageService.choosenLanguage['key']!.slogan!,
-                          color: ColorConstants.defaultTextColor),
-                    )),
-                    Expanded(
-                        child: Column(
-                      children: [
-                        CustomElevatedButton(
-                            buttonText: LanguageService
-                                .choosenLanguage['key']!.girisYap!,
-                            onPressed: () => const LoginScreen()
-                                .navigateEffectiveTo(context: context)),
-                        TextButton(
-                            onPressed: () => SignUpScreen()
-                                .navigateEffectiveTo(context: context),
-                            child: CustomText(
-                              text: LanguageService
-                                  .choosenLanguage['key']!.kaydol!,
-                              color: ColorConstants.defaultTextColor,
-                              isBold: true,
-                              fontSize: 16,
-                            ))
-                      ],
-                    ))
+                    Expanded(flex: 2, child: _lottieSplash()),
+                    Expanded(child: _appTitleSlogan()),
+                    Expanded(child: _logInSignUp(context))
                   ],
                 )
               : const CustomCircularProgress();
@@ -87,4 +42,50 @@ class PreloadingScreen extends StatelessWidget {
       ),
     );
   }
+
+  Column _logInSignUp(BuildContext context) => Column(
+        children: [_logIn(context), _signUp(context)],
+      );
+
+  TextButton _signUp(BuildContext context) => TextButton(
+      onPressed: () => SignUpScreen().navigateEffectiveTo(context: context),
+      child: CustomText(
+        text: LanguageService.choosenLanguage['key']!.kaydol!,
+        color: ColorConstants.defaultTextColor,
+        isBold: true,
+        fontSize: 16,
+      ));
+
+  CustomElevatedButton _logIn(BuildContext context) => CustomElevatedButton(
+      buttonText: LanguageService.choosenLanguage['key']!.girisYap!,
+      onPressed: () =>
+          const LoginScreen().navigateEffectiveTo(context: context));
+
+  CustomAppBar _appBar(BuildContext context) => CustomAppBar(
+        leading: const SizedBox(),
+        actions: [
+          CustomIconButton(
+            icon: const Icon(
+              Icons.language,
+              color: ColorConstants.buttonColor,
+              size: 28,
+            ),
+            onPressed: () async =>
+                await LanguageScreen(isPreloadingScreen: true)
+                    .navigateEffectiveTo(context: context),
+          ),
+        ],
+      );
+
+  ListTile _appTitleSlogan() => ListTile(
+        title: CustomTitleText(
+          title: 'Selpar',
+          color: ColorConstants.textButtonColor,
+        ),
+        subtitle: CustomText(
+            text: LanguageService.choosenLanguage['key']!.slogan!,
+            color: ColorConstants.defaultTextColor),
+      );
+
+  LottieBuilder _lottieSplash() => Lottie.asset('assets/lottie/splash.json');
 }

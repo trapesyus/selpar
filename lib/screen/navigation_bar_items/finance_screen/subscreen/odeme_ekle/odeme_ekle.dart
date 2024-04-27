@@ -42,30 +42,11 @@ class OdemeEkle extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-            CustomTextField(
-              controller: null,
-              sizeBottom: 0.02,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              sizeTop: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.makbuzNo!,
-              labelStyle: true,
-            ),
+            _makbuzNo(),
             Row(
               children: [
                 Expanded(
-                  child: CustomTextField(
-                    controller: null,
-                    sizeBottom: 0.02,
-                    sizeLeft: 0.02,
-                    sizeRight: 0.02,
-                    horizontalHeight: 0.04,
-                    verticalHeight: 0.01,
-                    label: LanguageService.choosenLanguage['key']!.cariAdi!,
-                    labelStyle: true,
-                  ),
+                  child: _cariAdi(),
                 ),
                 _searchButton(
                         context: context,
@@ -96,34 +77,71 @@ class OdemeEkle extends StatelessWidget {
                     context: context, items: _odemeEkleModel.moneyItems)
                 .getPadding(
                     context: context, sizeWidth: 0.02, sizeHeight: 0.02),
-            CustomTextField(
-              controller: null,
-              sizeBottom: 0.02,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.tutar!,
-              labelStyle: true,
-            ),
-            CustomTextField(
-              controller: null,
-              sizeLeft: 0.02,
-              sizeRight: 0.02,
-              horizontalHeight: 0.04,
-              verticalHeight: 0.01,
-              label: LanguageService.choosenLanguage['key']!.aciklama!,
-              labelStyle: true,
-            ),
-            CustomElevatedButton(
-                    buttonText:
-                        LanguageService.choosenLanguage['key']!.odemeEkle!,
-                    onPressed: () {})
-                .getPaddingOnly(
-                    context: context, right: 0.02, left: 0.02, bottom: 0.04)
+            _tutar(),
+            _aciklama(),
+            _odemeEklebutton().getPaddingOnly(
+                context: context, right: 0.02, left: 0.02, bottom: 0.04)
           ],
         ).getPadding(context: context, sizeWidth: 0.02, sizeHeight: 0),
       ),
+    );
+  }
+
+  CustomElevatedButton _odemeEklebutton() {
+    return CustomElevatedButton(
+        buttonText: LanguageService.choosenLanguage['key']!.odemeEkle!,
+        onPressed: () {});
+  }
+
+  CustomTextField _aciklama() {
+    return CustomTextField(
+      controller: null,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.aciklama!,
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _tutar() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.tutar!,
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _cariAdi() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.cariAdi!,
+      labelStyle: true,
+    );
+  }
+
+  CustomTextField _makbuzNo() {
+    return CustomTextField(
+      controller: null,
+      sizeBottom: 0.02,
+      sizeLeft: 0.02,
+      sizeRight: 0.02,
+      sizeTop: 0.02,
+      horizontalHeight: 0.04,
+      verticalHeight: 0.01,
+      label: LanguageService.choosenLanguage['key']!.makbuzNo!,
+      labelStyle: true,
     );
   }
 

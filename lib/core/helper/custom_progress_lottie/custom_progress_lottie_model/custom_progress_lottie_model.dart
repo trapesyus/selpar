@@ -6,6 +6,7 @@ import 'package:selpar/core/extensions/navigate_effective_extension.dart';
 
 part 'custom_progress_lottie_model.g.dart';
 
+// ignore: library_private_types_in_public_api
 class CustomProgresslottieModel = _CustomProgresslottieModelBase
     with _$CustomProgresslottieModel;
 

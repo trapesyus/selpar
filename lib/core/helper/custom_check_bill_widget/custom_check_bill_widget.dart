@@ -45,11 +45,7 @@ class CustomCheckBillWidget extends StatelessWidget {
                   title: firstSubTitle,
                   content: firstContent),
             ),
-            Divider(
-              color: ColorConstants.hintDarkContainerColor,
-              thickness: 2,
-              height: context.getSizeHeight(size: 0.02),
-            ),
+            _div(context),
             Expanded(
                 child: _customCheckBillListView(
                     context: context,
@@ -58,6 +54,14 @@ class CustomCheckBillWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Divider _div(BuildContext context) {
+    return Divider(
+      color: ColorConstants.hintDarkContainerColor,
+      thickness: 2,
+      height: context.getSizeHeight(size: 0.02),
     );
   }
 

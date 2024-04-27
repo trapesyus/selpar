@@ -37,11 +37,8 @@ class SharedCalendarWidget extends StatelessWidget {
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomText(
-                          text: title,
-                          color: ColorConstants.defaultTextColor,
-                          isBold: true,
-                        ).getPaddingOnly(context: context, right: 0.02),
+                        _selectDateText()
+                            .getPaddingOnly(context: context, right: 0.02),
                         CustomText(
                             text:
                                 "${store.selectedDate.toLocal()}".split(' ')[0],
@@ -52,11 +49,7 @@ class SharedCalendarWidget extends StatelessWidget {
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CustomText(
-                          text: title,
-                          color: ColorConstants.defaultTextColor,
-                          isBold: true,
-                        ),
+                        _selectDateText(),
                         CustomText(
                             text:
                                 "${store.selectedDate.toLocal()}".split(' ')[0],
@@ -70,6 +63,14 @@ class SharedCalendarWidget extends StatelessWidget {
                   isBold: true);
         }),
       ),
+    );
+  }
+
+  CustomText _selectDateText() {
+    return CustomText(
+      text: title,
+      color: ColorConstants.defaultTextColor,
+      isBold: true,
     );
   }
 }

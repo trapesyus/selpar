@@ -45,17 +45,10 @@ class CustomListPageWidget extends StatelessWidget {
         children: [
           Row(
             children: [
+              Expanded(child: _startDate()),
               Expanded(
-                  child: SharedCalendarWidget(
-                      store: startDate,
-                      title:
-                          LanguageService.choosenLanguage['key']!.baslangic!)),
-              Expanded(
-                  child: SharedCalendarWidget(
-                          store: finishDate,
-                          title: LanguageService.choosenLanguage['key']!.bitis!)
-                      .getPaddingOnly(
-                          context: context, left: 0.02, right: 0.02)),
+                  child: _finishDate().getPaddingOnly(
+                      context: context, left: 0.02, right: 0.02)),
               customButton(
                   context: context,
                   buttonText: LanguageService.choosenLanguage['key']!.goster!,
@@ -66,6 +59,18 @@ class CustomListPageWidget extends StatelessWidget {
         ],
       ),
     ));
+  }
+
+  SharedCalendarWidget _startDate() {
+    return SharedCalendarWidget(
+        store: startDate,
+        title: LanguageService.choosenLanguage['key']!.baslangic!);
+  }
+
+  SharedCalendarWidget _finishDate() {
+    return SharedCalendarWidget(
+        store: finishDate,
+        title: LanguageService.choosenLanguage['key']!.bitis!);
   }
 
   GestureDetector customButton(

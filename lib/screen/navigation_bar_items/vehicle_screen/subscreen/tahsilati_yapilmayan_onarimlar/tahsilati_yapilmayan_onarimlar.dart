@@ -20,38 +20,18 @@ class TahsilatiYapilmayanOnarimlar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar(
-          leading: CustomIconButton(
-              icon: const Icon(
-                CupertinoIcons.back,
-                color: ColorConstants.buttonColor,
-              ),
-              onPressed: () => Navigator.of(context).pop()),
-          title: LanguageService
-              .choosenLanguage['key']!.tahsilatiYapilmayanOnarimlar!,
-          centerTitle: false,
-        ),
+        appBar: _appbar(context),
         body: ListView(
           padding: EdgeInsets.symmetric(
               horizontal: context.getSizeWidth(size: 0.02)),
           children: [
             Row(
               children: [
+                Expanded(child: _startDate()),
                 Expanded(
-                    child: SharedCalendarWidget(
-                  store: _calendarWidgetModelStart,
-                  title: LanguageService.choosenLanguage['key']!.baslangic!,
-                )),
-                Expanded(
-                    child: SharedCalendarWidget(
-                            store: _calendarWidgetModelFinish,
-                            title:
-                                LanguageService.choosenLanguage['key']!.bitis!)
-                        .getPaddingOnly(
-                            context: context, left: 0.02, right: 0.02)),
-                CustomContainerButton(
-                    buttonText: LanguageService.choosenLanguage['key']!.goster!,
-                    onTap: () {})
+                    child: _finishDate().getPaddingOnly(
+                        context: context, left: 0.02, right: 0.02)),
+                _showButton()
               ],
             )
           ],
@@ -59,4 +39,29 @@ class TahsilatiYapilmayanOnarimlar extends StatelessWidget {
       ),
     );
   }
+
+  CustomAppBar _appbar(BuildContext context) => CustomAppBar(
+        leading: CustomIconButton(
+            icon: const Icon(
+              CupertinoIcons.back,
+              color: ColorConstants.buttonColor,
+            ),
+            onPressed: () => Navigator.of(context).pop()),
+        title: LanguageService
+            .choosenLanguage['key']!.tahsilatiYapilmayanOnarimlar!,
+        centerTitle: false,
+      );
+
+  CustomContainerButton _showButton() => CustomContainerButton(
+      buttonText: LanguageService.choosenLanguage['key']!.goster!,
+      onTap: () {});
+
+  SharedCalendarWidget _finishDate() => SharedCalendarWidget(
+      store: _calendarWidgetModelFinish,
+      title: LanguageService.choosenLanguage['key']!.bitis!);
+
+  SharedCalendarWidget _startDate() => SharedCalendarWidget(
+        store: _calendarWidgetModelStart,
+        title: LanguageService.choosenLanguage['key']!.baslangic!,
+      );
 }
